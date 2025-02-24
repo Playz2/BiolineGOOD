@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=`, initial-scale=1.0">
+    <title>bioline</title>
+    <link rel="stylesheet" href="test2m.css">
+</head>
+<body>
+    <header class="header">
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+    <img class="back" src="GRADIENT-WALLPAPER-4k.png" alt="back">  
+    <div class="fixed">  
+    <div class="gradi"></div>
+    <a href="exerciti.html"><button id="backButton" class="back-btn">⬅ Înapoi</button></a>
+    <video id="ske" class="ske"  src="muschiu.mp4" autoplay loop muted playsinline></video>
+    <button id="videoToggle" class="video-btn">⏸ Pause</button>    
+
+    <div id="timer" class="timer">⏳ 10:00</div>
+    </div>
+
+  <div class="test">
+    <div class="cutie">
+        <div class="cuti1">
+      <h2 class="aleg">1. Alegeți răspunsul corect:</h2>
+      <p class="intrebare">Care este mușchiul responsabil pentru extensia gambei?</p>
+      <p class="rasr" data-correct="A">A) Biceps femural</p>
+      <p class="rasr" >B) Triceps sural</p>
+      <p class="rasr" >C) Deltoid</p>
+      <p class="rasr" >D) Trapez</p>
+      <button class="verifca">✔ Verifica</button>
+      <div class="linie"></div>
+        </div>
+        <div class="cuti1">
+      <h2 class="aleg">2. Alegeți răspunsul corect:</h2>
+      <p class="intrebare">Ce tip de mușchi este implicat în digestie?</p>
+      <p class="rasr" data-correct="A">A) Mușchiul scheletic</p>
+      <p class="rasr" >B) Mușchiul neted</p>
+      <p class="rasr" >C) Mușchiul cardiac</p>
+      <p class="rasr" >D) Mușchiul extensor</p>
+      <button class="verifca">✔ Verifica</button>
+      <div class="linie"></div>
+      </div>
+
+      <h2 class="aleg">3. Asociați noțiunile din coloana A cu cele din coloana B:</h2>
+      <div class="cutie2">
+        <div class="coloane">
+          <h3 class="coloaneenume">Coloana A</h3>
+          <div class="scris2">
+            <p class="optiuni" >1.Excitabilitate<input type="text" id="match1" class="match-box" placeholder="Ex: B"></p>
+            <p class="optiuni">2.Contractilitate<input type="text" id="match2" class="match-box" placeholder="Ex: B"></p>
+            <p class="optiuni">3.Elasticitate<input type="text" id="match3" class="match-box" placeholder="Ex: B"></p>
+            <p class="optiuni">4.Extensibilitate<input type="text" id="match4" class="match-box" placeholder="Ex: B"></p>
+          </div>
+        </div>
+        <div class="coloane">
+          <h3 class="coloanenume">Coloana B</h3>
+          <div class="scris2">
+            <p class="optiuni">a.Capacitatea de a răspunde</br> la stimuli</p>
+            <p class="optiuni">b.Capacitatea de a se scurta</br> și genera forță</p>
+            <p class="optiuni">c.Revenirea la forma inițială</br> după întindere</p>
+            <p class="optiuni">d.Capacitatea de a se întinde</br> fără a fi deteriorat</p>
+          </div>
+        </div>
+      </div>
+        <button class="check-btn" onclick="checkMatching1()">✔ verifica</button>
+      <div class="linie"></div>
+     <div class="cuti1">
+      <h2 class="aleg">4. Alegeți răspunsul corect:</h2>
+      <p class="intrebare">Care este sursa principală de energie pentru contracțiile musculare?</p>
+      <p class="rasr" >A) ADN</p>
+      <p class="rasr" data-correct="B">B) Lipide</p>
+      <p class="rasr" >C) ATP</p>
+      <p class="rasr" >D) Enzime</p>
+      <button class="verifca">✔ Verifica</button>
+      <div class="linie"></div>
+     </div>
+     <div class="cuti1">
+      <h2 class="aleg">5. Alegeți răspunsul corect:</h2>
+      <p class="intrebare">Cum se numește procesul prin care mușchii devin mai mari și mai puternici?</p>
+      <p class="rasr" data-correct="A">A) Atrofie</p>
+      <p class="rasr" >B) Hipertrofie</p>
+      <p class="rasr" >C) Tetanos</p>
+      <p class="rasr" >D) Crampă musculară</p>
+      <button class="verifca">✔ Verifica</button>
+      <div class="linie"></div>
+        </div>
+        <div class="cuti1">
+      <h2 class="aleg">6. Alegeți răspunsul corect:</h2>
+      <p class="intrebare">Ce mușchi este situat în partea anterioară a coapsei</br> și este folosit pentru extensia genunchiului?</p>
+      <p class="rasr" data-correct="A">A) Triceps sural</p>
+      <p class="rasr" >B) Quadriceps</p>
+      <p class="rasr" >C) Biceps femural</p>
+      <p class="rasr" >D) Trapez</p>
+      <button class="verifca">✔ Verifica</button>
+      <div class="linie"></div>
+    </div>
+    <div class="cuti1">
+      <h2 class="aleg">7. Alegeți răspunsul corect:</h2>
+      <p class="intrebare">Ce rol are mioglobina în mușchi?</p>
+      <p class="rasr" data-correct="A">A) Depozitează glicogen</p>
+      <p class="rasr" >B) Transportă oxigenul</p>
+      <p class="rasr" >C) Produce ATP</p>
+      <p class="rasr" >D) Controlează impulsurile nervoase</p>
+      <button class="verifca">✔ Verifica</button>
+      <div class="linie"></div>
+     </div>
+      <h2 class="aleg">8. Asociați noțiunile din coloana A cu cele din coloana B:</h2>
+      <div class="cutie2">
+        <div class="coloane">
+          <h3 class="coloanenume">Coloana A</h3>
+          <div class="coloane-content">
+            <p class="optiuni">1.Fibre musculare lente<input type="text" id="match5" class="match-box" placeholder="Ex: B"></p>
+            <p class="optiuni">2.Fibre musculare rapide<input type="text" id="match6" class="match-box" placeholder="Ex: B"></p>
+            <p class="optiuni">3.Mioglobină<input type="text" id="match7" class="match-box" placeholder="Ex: B"></p>
+            <p class="optiuni">4.Glicogen<input type="text" id="match8" class="match-box" placeholder="Ex: B"></p>
+          </div>
+        </div>
+        <div class="coloane">
+          <h3 class="coloane-title">Coloana B</h3>
+          <div class="coloane-content">
+            <p class="optiuni">a.Se contractă rapid, dar obosesc ușor</p>
+            <p class="optiuni">b.Sunt rezistente la oboseală și folosesc oxigen</p>
+            <p class="optiuni">c.Conferă mușchilor capacitatea de a stoca oxigen</p>
+            <p class="optiuni">d.Este folosit ca rezervă de energie în mușchi</p>
+          </div>
+        </div>
+      </div><button class="check-btn" onclick="checkMatching2()">✔ verifica</button>
+      <div class="linie"></div>
+  
+      <div class="cuti1">
+      <h2 class="aleg">9. Alegeți răspunsul corect:</h2>
+      <p class="intrebare">Care este termenul pentru contracția involuntară și dureroasă a unui mușchi?</p>
+      <p class="rasr" data-correct="A">A) Crampă</p>
+      <p class="rasr" >B) Hipertrofie</p>
+      <p class="rasr" >C) Tetanos</p>
+      <p class="rasr" >D) Reflex muscular</p>
+      <button class="verifca">✔ Verifica</button>
+      <div class="linie"></div>
+    </div>
+     <div class="cuti1">
+      <h2 class="aleg">10. Alegeți răspunsul corect:</h2>
+      <p class="intrebare">Care este mușchiul principal utilizat în respirație?</p>
+      <p class="rasr" data-correct="A">A) Diafragma</p>
+      <p class="rasr" >B) Trapezul</p>
+      <p class="rasr" >C) Sternocleidomastoidianul</p>
+      <p class="rasr" >D) Pectoralul mare</p>
+      <button class="verifca">✔ Verifica</button>
+    </div>
+    </div>
+  </div>
+
+  <script src="scripthub.js"></script>
+  <script src="scriptexerciti.js"></script>
+</body>
+</html>
