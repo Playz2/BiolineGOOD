@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=`, initial-scale=1.0">
+    <title>bioline</title>
+    <link rel="stylesheet" href="test2m.css">
+</head>
+<body>
+    <header class="header">
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+    <img class="back" src="GRADIENT-WALLPAPER-4k.png" alt="back">  
+    <div class="fixed">  
+    <div class="gradi"></div>
+    <a href="exerciti.html"><button id="backButton" class="back-btn">⬅ Înapoi</button></a>
+    <video id="ske" class="ske"  src="muschiu.mp4" autoplay loop muted playsinline></video>
+    <button id="videoToggle" class="video-btn">⏸ Pause</button>    
+
+    <div id="timer" class="timer">⏳ 10:00</div>
+    </div>
+
+  <div class="test">
+    <div class="cutie">
+        <div class="cuti1">
+      <h2 class="aleg">1. Alegeți răspunsul corect:</h2>
+      <p class="intrebare">Care este cel mai lung mușchi din corpul uman?</p>
+      <p class="rasr" data-correct="A">A) Quadriceps</p>
+      <p class="rasr" >B) Sartorius</p>
+      <p class="rasr" >C) Trapez</p>
+      <p class="rasr" >D) Biceps femural</p>
+      <button class="verifca">✔ Verifica</button>
+      <div class="linie"></div>
+        </div>
+        <div class="cuti1">
+      <h2 class="aleg">2. Alegeți răspunsul corect:</h2>
+      <p class="intrebare">Ce proteină este esențială pentru contracția musculară?</p>
+      <p class="rasr" data-correct="A">A) Hemoglobina</p>
+      <p class="rasr" >B) Actina</p>
+      <p class="rasr" >C) Colagenul</p>
+      <p class="rasr" >D) Keratina</p>
+      <button class="verifca">✔ Verifica</button>
+      <div class="linie"></div>
+      </div>
+
+      <h2 class="aleg">3. Asociați noțiunile din coloana A cu cele din coloana B:</h2>
+      <div class="cutie2">
+        <div class="coloane">
+          <h3 class="coloaneenume">Coloana A</h3>
+          <div class="scris2">
+            <p class="optiuni" >1.Actină<input type="text" id="match1" class="match-box" placeholder="Ex: B"></p>
+            <p class="optiuni">2.Miozină<input type="text" id="match2" class="match-box" placeholder="Ex: B"></p>
+            <p class="optiuni">3.ATP<input type="text" id="match3" class="match-box" placeholder="Ex: B"></p>
+            <p class="optiuni">4.Calciu<input type="text" id="match4" class="match-box" placeholder="Ex: B"></p>
+          </div>
+        </div>
+        <div class="coloane">
+          <h3 class="coloanenume">Coloana B</h3>
+          <div class="scris2">
+            <p class="optiuni">a.Proteină care interacționează cu</br> actina pentru contracție</p>
+            <p class="optiuni">b.Proteină care formează</br> filamentul subțire</p>
+            <p class="optiuni">c.Sursa principală de energie</br> pentru contracția musculară</p>
+            <p class="optiuni">d.Ion esențial pentru activarea</br> procesului de contracție</p>
+          </div>
+        </div>
+      </div>
+        <button class="check-btn" onclick="checkMatching1()">✔ verifica</button>
+      <div class="linie"></div>
+     <div class="cuti1">
+      <h2 class="aleg">4. Alegeți răspunsul corect:</h2>
+      <p class="intrebare">Cum se numește procesul prin care mușchii slăbesc din cauza lipsei activității fizice?</p>
+      <p class="rasr" >A) Hipertrofie</p>
+      <p class="rasr" data-correct="B">B) Atrofie</p>
+      <p class="rasr" >C) Contractură</p>
+      <p class="rasr" >D) Extensie</p>
+      <button class="verifca">✔ Verifica</button>
+      <div class="linie"></div>
+     </div>
+     <div class="cuti1">
+      <h2 class="aleg">5. Alegeți răspunsul corect:</h2>
+      <p class="intrebare">Care dintre următorii mușchi face parte din mușchii antagoniști ai bicepsului brahial?</p>
+      <p class="rasr" data-correct="A">A) Triceps brahial</p>
+      <p class="rasr" >B) Deltoid</p>
+      <p class="rasr" >C) Pectoral</p>
+      <p class="rasr" >D) Sternocleidomastoidian</p>
+      <button class="verifca">✔ Verifica</button>
+      <div class="linie"></div>
+        </div>
+        <div class="cuti1">
+      <h2 class="aleg">6. Alegeți răspunsul corect:</h2>
+      <p class="intrebare">Ce tip de mușchi formează peretele inimii?</p>
+      <p class="rasr" data-correct="A">A) Mușchi neted</p>
+      <p class="rasr" >B) Mușchi scheletic</p>
+      <p class="rasr" >C) Mușchi cardiac</p>
+      <p class="rasr" >D) Mușchi mixt</p>
+      <button class="verifca">✔ Verifica</button>
+      <div class="linie"></div>
+    </div>
+    <div class="cuti1">
+      <h2 class="aleg">7. Alegeți răspunsul corect:</h2>
+      <p class="intrebare">Cum se numește fenomenul prin care mușchii produc căldură?</p>
+      <p class="rasr" data-correct="A">A) Termogeneza</p>
+      <p class="rasr" >B) Metabolism</p>
+      <p class="rasr" >C) Atrofie</p>
+      <p class="rasr" >D) Miofibriliza</p>
+      <button class="verifca">✔ Verifica</button>
+      <div class="linie"></div>
+     </div>
+      <h2 class="aleg">8. Asociați noțiunile din coloana A cu cele din coloana B:</h2>
+      <div class="cutie2">
+        <div class="coloane">
+          <h3 class="coloanenume">Coloana A</h3>
+          <div class="coloane-content">
+            <p class="optiuni">1.Postura corpului<input type="text" id="match5" class="match-box" placeholder="Ex: B"></p>
+            <p class="optiuni">2.Locomoție<input type="text" id="match6" class="match-box" placeholder="Ex: B"></p>
+            <p class="optiuni">3.Protecția organelor<input type="text" id="match7" class="match-box" placeholder="Ex: B"></p>
+            <p class="optiuni">4.Producerea de căldură<input type="text" id="match8" class="match-box" placeholder="Ex: B"></p>
+          </div>
+        </div>
+        <div class="coloane">
+          <h3 class="coloane-title">Coloana B</h3>
+          <div class="coloane-content">
+            <p class="optiuni">a.Menținerea echilibrului și poziției corpului</p>
+            <p class="optiuni">b.Deplasarea și mișcarea corpului</p>
+            <p class="optiuni">c.Absorbția șocurilor și protecția structurilor interne</p>
+            <p class="optiuni">d.Reglarea temperaturii prin contracții musculare</p>
+          </div>
+        </div>
+      </div><button class="check-btn" onclick="checkMatching2()">✔ verifica</button>
+      <div class="linie"></div>
+  
+      <div class="cuti1">
+      <h2 class="aleg">9. Alegeți răspunsul corect:</h2>
+      <p class="intrebare">Ce organ controlează direct activitatea mușchilor scheletici?</p>
+      <p class="rasr" data-correct="A">A) Inima</p>
+      <p class="rasr" >B) Creierul</p>
+      <p class="rasr" >C) Ficatul</p>
+      <p class="rasr" >D) Rinichii</p>
+      <button class="verifca">✔ Verifica</button>
+      <div class="linie"></div>
+    </div>
+     <div class="cuti1">
+      <h2 class="aleg">10. Alegeți răspunsul corect:</h2>
+      <p class="intrebare">Care dintre următorii mușchi participă la mișcarea umerilor?</p>
+      <p class="rasr" data-correct="A">A) Trapezul</p>
+      <p class="rasr" >B) Quadriceps</p>
+      <p class="rasr" >C) Triceps sural</p>
+      <p class="rasr" >D) Biceps femural</p>
+      <button class="verifca">✔ Verifica</button>
+    </div>
+    </div>
+  </div>
+
+  <script src="scripthub.js"></script>
+  <script src="scriptexerciti.js"></script>
+</body>
+</html>
