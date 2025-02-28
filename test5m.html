@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=`, initial-scale=1.0">
+    <title>bioline</title>
+    <link rel="stylesheet" href="test5m.css">
+</head>
+<body>
+    <header class="header">
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+    <img class="back" src="GRADIENT-WALLPAPER-4k.png" alt="back">  
+    <div class="fixed">  
+    <div class="gradi"></div>
+    <a href="exerciti.html"><button id="backButton" class="back-btn">⬅ Înapoi</button></a>
+    <video id="ske" class="ske"  src="muschiu.mp4" autoplay loop muted playsinline></video>
+    <button id="videoToggle" class="video-btn">⏸ Pause</button>    
+
+    <div id="timer" class="timer">⏳ 10:00</div>
+    </div>
+
+  <div class="test">
+    <div class="cutie">
+        <div class="cuti1">
+      <h2 class="aleg">1. Alegeți răspunsul corect:</h2>
+      <p class="intrebare">Care este principala funcție a mușchilor scheletici?</p>
+      <p class="rasr" data-correct="A">A) Reglarea temperaturii corpului</p>
+      <p class="rasr" >B) Asigurarea posturii și mișcărilor voluntare</p>
+      <p class="rasr" >C) Digestia alimentelor</p>
+      <p class="rasr" >D) Secreția de hormoni</p>
+      <button class="verifca">✔ Verifica</button>
+      <div class="linie"></div>
+        </div>
+        <div class="cuti1">
+      <h2 class="aleg">2. Alegeți răspunsul corect:</h2>
+      <p class="intrebare">Ce proprietate a mușchilor permite răspunsul la un stimul?</p>
+      <p class="rasr" data-correct="A">A) Contractilitatea</p>
+      <p class="rasr" >B) Extensibilitatea</p>
+      <p class="rasr" >C) Excitabilitatea</p>
+      <p class="rasr" >D) Elasticitatea</p>
+      <button class="verifca">✔ Verifica</button>
+      <div class="linie"></div>
+      </div>
+
+      <h2 class="aleg">3. Asociați noțiunile din coloana A cu cele din coloana B:</h2>
+      <div class="cutie2">
+        <div class="coloane">
+          <h3 class="coloaneenume">Coloana A</h3>
+          <div class="scris2">
+            <p class="optiuni" >1.Contractilitate<input type="text" id="match1" class="match-box" placeholder="Ex: B"></p>
+            <p class="optiuni">2.Excitabilitate<input type="text" id="match2" class="match-box" placeholder="Ex: B"></p>
+            <p class="optiuni">3.Extensibilitate<input type="text" id="match3" class="match-box" placeholder="Ex: B"></p>
+            <p class="optiuni">4.Elasticitate<input type="text" id="match4" class="match-box" placeholder="Ex: B"></p>
+          </div>
+        </div>
+        <div class="coloane">
+          <h3 class="coloanenume">Coloana B</h3>
+          <div class="scris2">
+            <p class="optiuni">a.Răspunde la stimuli</br> prin potențial de acțiune</p>
+            <p class="optiuni">b.Capacitatea de a se scurta</br> și de a produce tensiune</p>
+            <p class="optiuni">c.Se alungește pasiv sub</br> acțiunea unei forțe externe</p>
+            <p class="optiuni">d.Revine la forma</br> inițială după deformare</p>
+          </div>
+        </div>
+      </div>
+        <button class="check-btn" onclick="checkMatching1()">✔ verifica</button>
+      <div class="linie"></div>
+     <div class="cuti1">
+      <h2 class="aleg">4. Alegeți răspunsul corect:</h2>
+      <p class="intrebare">Ce unitate structurală și funcțională se află între două membrane Z?</p>
+      <p class="rasr" >A) Miofibrila</p>
+      <p class="rasr" data-correct="B">B) Miozină</p>
+      <p class="rasr" >C) Sarcomer</p>
+      <p class="rasr" >D) Actină</p>
+      <button class="verifca">✔ Verifica</button>
+      <div class="linie"></div>
+     </div>
+     <div class="cuti1">
+      <h2 class="aleg">5. Alegeți răspunsul corect:</h2>
+      <p class="intrebare">Care dintre următoarele tipuri de contracții musculare presupune creșterea</br> tensiunii fără modificarea lungimii mușchiului?</p>
+      <p class="rasr" data-correct="A">A) Izotonică</p>
+      <p class="rasr" >B) Izometrică</p>
+      <p class="rasr" >C) Auxotonică</p>
+      <p class="rasr" >D) Tetanică</p>
+      <button class="verifca">✔ Verifica</button>
+      <div class="linie"></div>
+        </div>
+        <div class="cuti1">
+      <h2 class="aleg">6. Alegeți răspunsul corect:</h2>
+      <p class="intrebare">În ce fază a metabolismului muscular predomină procesul anaerob?</p>
+      <p class="rasr" data-correct="A">A) După primele 2 minute de efort</p>
+      <p class="rasr" >B) Între 5 și 10 minute de efort</p>
+      <p class="rasr" >C) În primele 45-90 de secunde de efort intens</p>
+      <p class="rasr" >D) Doar în repaus</p>
+      <button class="verifca">✔ Verifica</button>
+      <div class="linie"></div>
+    </div>
+    <div class="cuti1">
+      <h2 class="aleg">7. Alegeți răspunsul corect:</h2>
+      <p class="intrebare">Ce fenomen electric este caracteristic mușchilor în timpul contracției?</p>
+      <p class="rasr" data-correct="A">A) Reflexul miotatic</p>
+      <p class="rasr" >B) Potențialul de acțiune propagat</p>
+      <p class="rasr" >C) Tetanosul incomplet</p>
+      <p class="rasr" >D) Miografia</p>
+      <button class="verifca">✔ Verifica</button>
+      <div class="linie"></div>
+     </div>
+      <h2 class="aleg">8. Asociați noțiunile din coloana A cu cele din coloana B:</h2>
+      <div class="cutie2">
+        <div class="coloane">
+          <h3 class="coloanenume">Coloana A</h3>
+          <div class="coloane-content">
+            <p class="optiuni">1.Contracție izometrică<input type="text" id="match5" class="match-box" placeholder="Ex: B"></p>
+            <p class="optiuni">2.Contracție izotonică<input type="text" id="match6" class="match-box" placeholder="Ex: B"></p>
+            <p class="optiuni">3.Contracție tetanică<input type="text" id="match7" class="match-box" placeholder="Ex: B"></p>
+            <p class="optiuni">4.Contracție auxotonică<input type="text" id="match8" class="match-box" placeholder="Ex: B"></p>
+          </div>
+        </div>
+        <div class="coloane">
+          <h3 class="coloane-title">Coloana B</h3>
+          <div class="coloane-content">
+            <p class="optiuni">a.Lungimea mușchiului se modifică, tensiunea rămâne constantă</p>
+            <p class="optiuni">b.Lungimea mușchiului rămâne constantă, dar tensiunea crește</p>
+            <p class="optiuni">c.Contracție continuă obținută prin stimuli repetitivi</p>
+            <p class="optiuni">d.Se modifică și lungimea și tensiunea mușchiului</p>
+          </div>
+        </div>
+      </div><button class="check-btn" onclick="checkMatching2()">✔ verifica</button>
+      <div class="linie"></div>
+  
+      <div class="cuti1">
+      <h2 class="aleg">9. Alegeți răspunsul corect:</h2>
+      <p class="intrebare">Care dintre următoarele afirmatii este corectă despre tonusul muscular?</p>
+      <p class="rasr" data-correct="A">A) Este o stare de tensiune temporară a mușchilor</p>
+      <p class="rasr" >B) Apare doar în timpul contracției active</p>
+      <p class="rasr" >C) Este reflex și dispare după denervare</p>
+      <p class="rasr" >D) Se manifestă doar la nivelul inimii</p>
+      <button class="verifca">✔ Verifica</button>
+      <div class="linie"></div>
+    </div>
+     <div class="cuti1">
+      <h2 class="aleg">10. Alegeți răspunsul corect:</h2>
+      <p class="intrebare">Ce tip de contracție apare atunci când un mușchi își modifică lungimea, dar menține o tensiune constantă?</p>
+      <p class="rasr" data-correct="A">A) Izometrică</p>
+      <p class="rasr" >B) Izotonică</p>
+      <p class="rasr" >C) Auxotonică</p>
+      <p class="rasr" >D) Secusă</p>
+      <button class="verifca">✔ Verifica</button>
+    </div>
+    </div>
+  </div>
+
+  <script src="scripthub.js"></script>
+  <script src="scriptexerciti.js"></script>
+</body>
+</html>

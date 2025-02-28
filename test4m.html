@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=`, initial-scale=1.0">
+    <title>bioline</title>
+    <link rel="stylesheet" href="test4m.css">
+</head>
+<body>
+    <header class="header">
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+    <img class="back" src="GRADIENT-WALLPAPER-4k.png" alt="back">  
+    <div class="fixed">  
+    <div class="gradi"></div>
+    <a href="exerciti.html"><button id="backButton" class="back-btn">⬅ Înapoi</button></a>
+    <video id="ske" class="ske"  src="muschiu.mp4" autoplay loop muted playsinline></video>
+    <button id="videoToggle" class="video-btn">⏸ Pause</button>    
+
+    <div id="timer" class="timer">⏳ 10:00</div>
+    </div>
+
+  <div class="test">
+    <div class="cutie">
+        <div class="cuti1">
+      <h2 class="aleg">1. Alegeți răspunsul corect:</h2>
+      <p class="intrebare">Dintre mushcii  gambei fac parte</p>
+      <p class="rasr" data-correct="A">A) tricepsul sural</p>
+      <p class="rasr" >B) bicepsul femural</p>
+      <p class="rasr" >C) croitor</p>
+      <p class="rasr" >D) cvadricepsul femural</p>
+      <button class="verifca">✔ Verifica</button>
+      <div class="linie"></div>
+        </div>
+        <div class="cuti1">
+      <h2 class="aleg">2. Alegeți răspunsul corect:</h2>
+      <p class="intrebare">Muschi al gatului este</p>
+      <p class="rasr" data-correct="A">A) piramidal</p>
+      <p class="rasr" >B) pielos</p>
+      <p class="rasr" >C) oblic</p>
+      <p class="rasr" >D) trapez</p>
+      <button class="verifca">✔ Verifica</button>
+      <div class="linie"></div>
+      </div>
+
+      <h2 class="aleg">3. Asociați noțiunile din coloana A cu cele din coloana B:</h2>
+      <div class="cutie2">
+        <div class="coloane">
+          <h3 class="coloaneenume">Coloana A</h3>
+          <div class="scris2">
+            <p class="optiuni" >1.Contracție izometrică<input type="text" id="match1" class="match-box" placeholder="Ex: B"></p>
+            <p class="optiuni">2.Contracție izotonică<input type="text" id="match2" class="match-box" placeholder="Ex: B"></p>
+            <p class="optiuni">3.Contracție concentrică<input type="text" id="match3" class="match-box" placeholder="Ex: B"></p>
+            <p class="optiuni">4.Contracție excentrică<input type="text" id="match4" class="match-box" placeholder="Ex: B"></p>
+          </div>
+        </div>
+        <div class="coloane">
+          <h3 class="coloanenume">Coloana B</h3>
+          <div class="scris2">
+            <p class="optiuni">a.Mușchiul se scurtează</br> și generează mișcare</p>
+            <p class="optiuni">b.Mușchiul se contractă</br> fără a-și modifica lungimea</p>
+            <p class="optiuni">c.Mușchiul se alungește</br> sub tensiune</p>
+            <p class="optiuni">d.Tip de contracție izotonică</br> în care mușchiul se alungește</p>
+          </div>
+        </div>
+      </div>
+        <button class="check-btn" onclick="checkMatching1()">✔ verifica</button>
+      <div class="linie"></div>
+     <div class="cuti1">
+      <h2 class="aleg">4. Alegeți răspunsul corect:</h2>
+      <p class="intrebare">Dintre muschii abdominali fac parte</p>
+      <p class="rasr" >A) marele dorsal</p>
+      <p class="rasr" data-correct="B">B) croitor</p>
+      <p class="rasr" >C) oblic intern</p>
+      <p class="rasr" >D) dintat</p>
+      <button class="verifca">✔ Verifica</button>
+      <div class="linie"></div>
+     </div>
+     <div class="cuti1">
+      <h2 class="aleg">5. Alegeți răspunsul corect:</h2>
+      <p class="intrebare">Bicepsul brahial este muschi al</p>
+      <p class="rasr" data-correct="A">A) abdomenului</p>
+      <p class="rasr" >B) membrului superior</p>
+      <p class="rasr" >C) spatelui</p>
+      <p class="rasr" >D) mimicii</p>
+      <button class="verifca">✔ Verifica</button>
+      <div class="linie"></div>
+        </div>
+        <div class="cuti1">
+      <h2 class="aleg">6. Alegeți răspunsul corect:</h2>
+      <p class="intrebare">Muschi al membrelor inferioare este</p>
+      <p class="rasr" data-correct="A">A) bicepsul femural</p>
+      <p class="rasr" >B) tricepsul brahial</p>
+      <p class="rasr" >C) dintatul</p>
+      <p class="rasr" >D) oblicul extern</p>
+      <button class="verifca">✔ Verifica</button>
+      <div class="linie"></div>
+    </div>
+    <div class="cuti1">
+      <h2 class="aleg">7. Alegeți răspunsul corect:</h2>
+      <p class="intrebare">Muschi al umarului este</p>
+      <p class="rasr" data-correct="A">A) bicepsul femural</p>
+      <p class="rasr" >B) oblicul extern</p>
+      <p class="rasr" >C) deltoidul</p>
+      <p class="rasr" >D) trapezul</p>
+      <button class="verifca">✔ Verifica</button>
+      <div class="linie"></div>
+     </div>
+      <h2 class="aleg">8. Asociați noțiunile din coloana A cu cele din coloana B:</h2>
+      <div class="cutie2">
+        <div class="coloane">
+          <h3 class="coloanenume">Coloana A</h3>
+          <div class="coloane-content">
+            <p class="optiuni">1.Excitabilitate<input type="text" id="match5" class="match-box" placeholder="Ex: B"></p>
+            <p class="optiuni">2.Contractilitate<input type="text" id="match6" class="match-box" placeholder="Ex: B"></p>
+            <p class="optiuni">3.Elasticitate<input type="text" id="match7" class="match-box" placeholder="Ex: B"></p>
+            <p class="optiuni">4.Extensibilitate<input type="text" id="match8" class="match-box" placeholder="Ex: B"></p>
+          </div>
+        </div>
+        <div class="coloane">
+          <h3 class="coloane-title">Coloana B</h3>
+          <div class="coloane-content">
+            <p class="optiuni">a.Capacitatea de a răspunde la stimuli</p>
+            <p class="optiuni">b.Capacitatea de a se scurta și de a produce forță</p>
+            <p class="optiuni">c.Revenirea la forma inițială după întindere</p>
+            <p class="optiuni">d.Capacitatea de a fi întins fără a se rupe</p>
+          </div>
+        </div>
+      </div><button class="check-btn" onclick="checkMatching2()">✔ verifica</button>
+      <div class="linie"></div>
+  
+      <div class="cuti1">
+      <h2 class="aleg">9. Alegeți răspunsul corect:</h2>
+      <p class="intrebare">Muschi al gambei este</p>
+      <p class="rasr" data-correct="A">A) tricepsul sural</p>
+      <p class="rasr" >B) trapez</p>
+      <p class="rasr" >C) croitor</p>
+      <p class="rasr" >D) biceps brahial</p>
+      <button class="verifca">✔ Verifica</button>
+      <div class="linie"></div>
+    </div>
+     <div class="cuti1">
+      <h2 class="aleg">10. Alegeți răspunsul corect:</h2>
+      <p class="intrebare">Muschi al toracelui este</p>
+      <p class="rasr" data-correct="A">A) semitendinos</p>
+      <p class="rasr" >B) dintat</p>
+      <p class="rasr" >C) oblicul extern</p>
+      <p class="rasr" >D) trapez</p>
+      <button class="verifca">✔ Verifica</button>
+    </div>
+    </div>
+  </div>
+
+  <script src="scripthub.js"></script>
+  <script src="scriptexerciti.js"></script>
+</body>
+</html>
