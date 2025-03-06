@@ -1,0 +1,328 @@
+body {
+    background-color: rgb(15, 38, 108);
+    color: #ffffff;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+  overflow-x: hidden;
+  font-family: "inter", sans-serif;
+}
+.header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: transparent;
+    color: white;
+    padding: 20px 25px 5px;
+  }
+  
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+    z-index: 4;
+  }
+  
+  .hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    border-radius: 5px;
+    transition: all background-color 0.8s ease-in-out;
+    cursor: pointer;
+  }
+
+  .hamburger:hover{
+    background-color: #000000;
+    opacity: 40%;
+  }
+  .hamburger:active{
+    background-color: #5a1010;
+  }
+
+  .menu {
+    position: relative;
+    background-color: #444;
+    color: white;
+    padding: 50px 20px;
+    transform: translateY(-100%);
+    opacity: 0;
+    transition: transform 0.5s ease, opacity 0.5s ease; 
+  }
+  
+  .menu.slide-down {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  
+  .menu-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .menu-links li {
+    margin: 10px 0;
+  }
+  
+  .menu-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 10px;
+    display: block;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+
+  .menu-links a:hover {
+    background-color: #555;
+  }
+  .sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 250px;
+    background-color: rgb(217, 217, 217);
+    overflow: auto;
+    padding-top: 10px;
+}
+
+.sidebar a {
+    display: block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #000000;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar a:hover {
+    color: white;
+    background-color: #444;
+}
+
+.sidebar h2 {
+    color: #000000;
+    padding-left: 35px;
+}
+
+.capitol {
+    margin-bottom: 10px;
+}
+
+.capitol-btn {
+    width: 100%;
+    background-color: #ccc;
+    border: none;
+    padding: 10px;
+    text-align: left;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.capitol-btn:hover {
+    background-color: #bbb;
+}
+
+.lectii {
+    display: none;
+    padding-left: 20px;
+}
+
+.lectii a {
+    padding: 8px 10px;
+    display: block;
+}
+.titl{
+    position:relative;
+    width:1670px;
+    height:207px;
+    background-color: rgb(217, 217, 217);
+    left:250px;
+}
+.titl{
+    position:absolute;
+width:1920px;
+height:180px;
+background-color:rgb(217,217,217);
+left:250px;
+top:100px;
+}
+.titl h1{
+    position:relative;
+    font-size:4rem;
+    bottom:50px;
+    color:black;
+    font-weight:bold;
+    z-index:40;
+    max-width:700px;
+}
+.titlu1{
+    position: relative;
+    width:1275px;
+    height:543px;
+    left:750px;
+    bottom:45px;
+}
+.cutie2{
+    position:relative;
+    width:860px;
+    height:542px;
+    background-color: rgb(243, 142, 41);
+    border-radius: 50px;
+    left:980px;
+    bottom:116px;
+    z-index: 2;
+    }
+
+    .cutie2 p{
+        position:relative;
+        color: #000000;
+        font-size: 4rem;
+      font-weight: bolder;
+      left:60px;
+      max-width: 800px;
+      top:30px;
+      }
+      .cutie3{
+        position:relative;
+      width:908px;
+      height:621px;
+      background-color: rgb(63, 63, 63);
+      border-radius: 50px;
+      left:250px;
+      bottom:450px;
+      }
+      .brat{
+        position: relative;
+        width:887px;
+        height: 617px;
+        z-index:50;       
+      }
+      .cutie4{
+        position: relative;
+        width:1314px;
+        height:946px;
+background-color: rgb(194,72,71);
+left:400px;
+      }
+
+.cutie4 p{
+    position: relative;
+    color: rgb(217, 217, 217);
+    font-size: 4rem;
+  font-weight: bolder;
+  left:60px;
+  z-index:2 ;
+bottom:5px;
+}
+.adln{
+    position: relative;
+    width:1314px;
+    height:700px;
+    z-index:1 ;
+    bottom:224px;
+}
+.cutie5{
+    position: relative;
+    width: 1208px;
+    height: 460px;
+    background-color: rgb(12,29,81);
+    border-radius: 100px;
+    left: 470px;
+}
+.cutie5 p{
+    position: relative;
+    color: rgb(243, 142, 41);
+    font-size: 2.8rem;
+  font-weight: bolder;
+  left:60px;
+  max-width:1100px ;
+  z-index:2 ;
+top:30px;
+}
+.cutie6{
+    position: relative;
+    width: 506px;
+    height: 494px;
+    background-color: rgb(217, 217, 217);
+    border-radius: 40px;
+    left:42%;
+}
+.biceps{
+    position: relative;
+    width:359px;
+    height:450px;
+    
+}
+.cutie7{
+    position: relative;
+    width:1438px;
+    height:334px;
+    background-color: rgb(132, 132,132);
+    left:300px;
+
+}
+.cutie7 p{
+    position: relative;
+    color: rgb(217, 217, 217);
+    font-size: 4rem;
+  font-weight: bolder;
+
+  z-index:2 ;
+
+}
+.poza1{
+    position: relative;
+    width: 1438px;
+    height: 876px;
+    left:300px;
+    top:100px;
+}
+.cutie8{
+    position: relative;
+    width:550px;
+    height: 829px;
+    background-color: rgb(217, 217, 217);
+    left:350px;
+    top:100px;
+}
+.cutie8 p{
+position: relative;
+color:rgb(12,29,81);
+font-size: 4rem;
+font-weight: bolder;
+left:60px;
+max-width:500px ;
+z-index:2 ;
+}
+.poza2{
+    position: relative;
+    width:702px;
+    height: 830px;
+    left:555px;
+    bottom:884px;
+}
+.cutie9{
+    position: relative;
+    width:1368px;
+    height: 468px;
+    background-color: rgb(194,72,71);
+    left:350px;
+    top:400px;
+}
+.cutie9 p{
+    position: relative;
+    color:rgb(217, 217, 217);
+    font-size: 4rem;
+    font-weight: bolder;
+    left:5px;
+    z-index:2 ;
+    }
+.poza3{
+    position: relative;
+   right:10px;
+}
