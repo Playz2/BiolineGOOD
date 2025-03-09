@@ -1,0 +1,348 @@
+body {
+    background-color: rgb(15, 38, 108);
+    color: #ffffff;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+  overflow-x: hidden;
+  font-family: "inter", sans-serif;
+}
+.header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: transparent;
+    color: white;
+    padding: 20px 25px 5px;
+  }
+  
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+    z-index: 4;
+  }
+  
+  .hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    border-radius: 5px;
+    transition: all background-color 0.8s ease-in-out;
+    cursor: pointer;
+  }
+
+  .hamburger:hover{
+    background-color: #000000;
+    opacity: 40%;
+  }
+  .hamburger:active{
+    background-color: #5a1010;
+  }
+
+  .menu {
+    position: relative;
+    background-color: #444;
+    color: white;
+    padding: 50px 20px;
+    transform: translateY(-100%);
+    opacity: 0;
+    transition: transform 0.5s ease, opacity 0.5s ease; 
+  }
+  
+  .menu.slide-down {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  
+  .menu-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .menu-links li {
+    margin: 10px 0;
+  }
+  
+  .menu-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 10px;
+    display: block;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+
+  .menu-links a:hover {
+    background-color: #555;
+  }
+  .sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 250px;
+    background-color: rgb(217, 217, 217);
+    overflow: auto;
+    padding-top: 10px;
+}
+
+.sidebar a {
+    display: block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #000000;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar a:hover {
+    color: white;
+    background-color: #444;
+}
+
+.sidebar h2 {
+    color: #000000;
+    padding-left: 35px;
+}
+
+.capitol {
+    margin-bottom: 10px;
+}
+
+.capitol-btn {
+    width: 100%;
+    background-color: #ccc;
+    border: none;
+    padding: 10px;
+    text-align: left;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.capitol-btn:hover {
+    background-color: #bbb;
+}
+
+.lectii {
+    display: none;
+    padding-left: 20px;
+}
+
+.lectii a {
+    padding: 8px 10px;
+    display: block;
+}
+.titl{
+    position:absolute;
+width:1920px;
+height:180px;
+background-color:rgb(217,217,217);
+left:250px;
+top:100px;
+}
+.titl h1{
+    position:relative;
+    font-size:4rem;
+    color:black;
+    font-weight:bold;
+    z-index:40;
+    max-width:700px;
+}
+.patrat1{
+    position: relative;
+    width:860px;
+    height:542px;
+    background-color: rgb(243, 142, 41);
+    border-radius: 50px;
+    z-index: 2;
+    top:300px;
+    left:300px;
+}
+.patrat1 p{
+    position: relative;
+    font-size: 3rem;
+    font-weight: bolder;
+    color: black;
+    top:30px;
+    left:20px;
+}
+.linie1{
+    position: relative;
+    background-color: rgb(243, 142, 41);
+    width:1700px;
+ height:2px;
+ top:400px;
+ left:250px;
+}
+.patrat2{
+    position: relative;
+    left:280px;
+     top:600px;
+    width: 1574px;
+    height:801px;
+    background-color: rgb(12,29,81);
+
+}
+.patrat2 h1{
+    position: relative;
+    color: white;
+    font-size: 5rem;
+    font-weight: bolder;
+    max-width: 800px;
+}
+.patrat2 p{
+    position: relative;
+    color:white;
+    font-size:3rem;
+    left:25px;
+    max-width: 800px;
+    font-weight: bolder;
+}
+.tr1{
+    position: relative;
+    left:600px;
+    width: 1216px;
+    height: 801;
+    bottom:665px;
+}
+.patrat3{
+    position: relative;
+    left:270px;
+    top:800px;
+    width: 1621px;
+    height: 1076px;
+    background-color: rgb(243, 142, 41);
+}
+.patrat3 h1{
+    position: relative;
+    color:black;
+    font-size:5rem;
+    left:120px;
+    font-weight: bolder;
+}
+.patrat3 p{
+    position: relative;
+    color:black;
+    font-size:3rem;
+    left:20px;
+    font-weight: bolder;
+}
+.tr2{
+    position: relative;
+    width: 838px;
+    height: 755px;
+    left:300PX;
+}
+.mar{
+    position: relative;
+    font-size: 3rem;
+    font-weight: bolder;
+    color: black;
+    left:500px;
+    top:150px;
+}
+.mic{
+    position: relative;
+    font-size: 3rem;
+    font-weight: bolder;
+    color:black;
+    left:1250px;
+}
+.patrat4{
+    position: relative;
+    width:1566px;
+    height:434px;
+    background-color: rgb(194,72,71);
+    left:300px;
+    top:600px;
+}
+.patrat4 h1{
+    position: relative;
+    color:white;
+    font-size:4rem;
+    left:25px;
+    max-width: 1500px;
+    font-weight: bolder;
+}
+
+.patrat5{
+    position: relative;
+    left:320px;
+     top:800px;
+    width: 1508px;
+    height:1512px;
+    background-color: rgb(12,29,81);
+}
+.patrat5 p{
+    position: relative;
+    color:white;
+    font-size:4rem;
+    left:25px;
+    max-width: 1500px;
+    font-weight: bolder;
+}
+.tr3{
+    position: relative;
+    width:1446px;
+    height:964px;
+    top:80px;
+    right:30px;
+}
+.linie2{
+    position: relative;
+    background-color: rgb(243, 142, 41);
+    width:1508px;
+ height:2px;
+bottom:892px;
+}
+.patrat6{
+    position: relative;
+    left:320px;
+     top:800px;
+    width: 1508px;
+    height:917px;
+    background-color: rgb(12,29,81);
+}
+.patrat6 p{
+    position: relative;
+    color:rgb(243, 142, 41);
+    font-size:4rem;
+    left:25px;
+    max-width: 800px;
+    font-weight: bolder;
+    top:100px;
+}
+.tr4{
+    position: relative;
+    width:1221px;
+    height: 917px;
+    left:600px;
+    bottom:679px;
+}
+.patrat7{
+    position: relative;
+    width:1672px;
+    height:418px;
+    left:250px;
+    background-color: rgb(132,132,132);
+    top:1000px;
+}
+.patrat7 p{
+    position: relative;
+    color:rgb(217, 217, 217);
+    font-size:3rem;
+    left:25px;
+    font-weight: bolder;
+    top:100px;
+}
+.tr8{
+position: relative;
+width:1415px;
+height:867px;
+top:1000px;
+left:350px;
+}
