@@ -243,3 +243,24 @@ body {
     height: 280px;
     max-width: 350px;
   }
+  .tibia{
+    position: absolute;
+    top: 2200px;
+    right: 100px;
+    max-width: 400px;
+    max-height: 400px;
+  }
+  .extensor{
+    position: absolute;
+    top: 2800px;
+    right: 550px;
+    max-width: 1400px;
+    max-height: 1800px;
+  }
+  .flexor{
+    position: absolute;
+    top: 3000px;
+    right: 150px;
+    max-width: 1400px;
+    max-height: 1800px;
+  }
