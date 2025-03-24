@@ -135,18 +135,112 @@ body {
     padding: 8px 10px;
     display: block;
 }
-h1{
-    position: relative;
-    left: 300px;
-    font-size: 3.5rem;
-    margin-top: 20px;
+
+.titlu{
+  position:relative;
+  width:1670px;
+  height:107px;
+  background-color: rgb(217, 217, 217);
+  left:250px;
+  margin-bottom: 150px;
+  z-index: -1;
 }
+.titlu h1{
+    color: #131313;
+    font-size: 3.5rem;
+    margin-left: 30px;
+    padding-top: 10px;
+}
+
 .cutie1{
-    position: relative;
-    margin-left: 16.3%;
-    max-width: 600px;
-    max-height: 500px;
-    background-color: #bbb;
-    color: #000000;
-    padding: 10px;
+  position: relative;
+  background-color: rgb(217, 217, 217);
+  margin-left: 300px;
+  max-width: 846px;
+  height: 314px;
+  border-radius: 40px;
+}
+.cutie1 p{
+  font-size: 2.1rem;
+  font-weight: 600;
+  color: #131313;
+  margin-left: 20px;
+  padding-top: 20px;
+}
+.img1{
+  position: absolute;
+  right: 50px;
+  max-width: 650px;
+  height: 350px;
+  top: 330px;
+  border-radius: 30px;
+}
+.pag1{
+  position: absolute;
+  top: 800px;
+}
+.img2{
+  position: relative;
+  margin-left: 300px;
+  max-width: 650px;
+  height: 350px;
+  border-radius: 160px;
+}
+.cutie2{
+  position: absolute;
+  left: 1050px;
+  background-color: rgb(217, 217, 217);
+  width: 696px;
+  height: 354px;
+  border-radius: 40px;
+}
+.cutie2 p{
+  font-size: 2rem;
+  font-weight: 600;
+  color: #131313;
+  margin-left: 20px;
+  padding-bottom: 10px;
+}
+.pag2{
+  position: absolute;
+  top: 1300px;
+
+}
+.back{
+  position: absolute;
+  background-color: #13131352;
+  width: 2020px;
+  height: 900px;
+  z-index: -1;
+}
+.img3{
+  position: absolute;
+  margin-left: 240px;
+  width: 1820px;
+  height: 900px;
+  z-index: -2;
+}
+.pag2 p{
+  font-size: 2rem;
+  font-weight: 600;
+  color: #e3dfdf;
+  margin-left: 320px;
+  padding-top: 180px;
+  text-shadow: #000000 2px 2px 2px;
+}
+.cutie3{
+  position: absolute;
+  top: 1940px;
+  left: 1150px;
+  background-color: rgb(217, 217, 217);
+  width: 526px;
+  height: 404px;
+  border-radius: 40px;
+  margin-bottom: 130px;
+}
+.cutie3 p{
+  font-size: 2.1rem;
+  font-weight: 600;
+  color: #131313;
+  text-align: center;
 }
