@@ -86,13 +86,13 @@ body {
     height: 116%;
     z-index: -2;
     opacity: 60%;  
-  } 
+  }
   .user{
     width: 5vh;
     height: 5vh;
     position: absolute;
     top: 9%;
-    right: 65%;
+    right: 66%;
   }
   .head{
     display: flex;
@@ -221,8 +221,8 @@ body {
   }
   .container h2{
     position: absolute;
-    left: 31%;
-    bottom: 2%;
+    left: 28%;
+    top: 90%;
     width: 40%;
     height: auto;
     font-size: 1.1rem;
