@@ -1,0 +1,151 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+}
+
+body {
+    background-color: #000000;
+    line-height: 1.6;
+    overflow-x: hidden;
+    color: #2e2e2e;
+    position: relative;
+    min-height: 100vh;
+}
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+    opacity: 0.6;
+    transform: scaleX(-1);
+}
+
+.header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 20px 25px;
+    position: relative;
+    z-index: 10;
+}
+
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.hamburger:hover {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.hamburger:active span {
+    background-color: #5a1010;
+}
+
+.verification-container {
+    position: relative;
+    margin: 0 auto;
+    max-width: 650px; /* Increased from 500px */
+    width: 90%;
+    background-color: #ffffff;
+    border-radius: 30px;
+    box-shadow: 0 20px 35px rgba(0, 0, 1, 0.9);
+    padding: 50px 40px; /* Increased padding */
+    text-align: center;
+    margin-top: 50px;
+    min-height: 500px; /* Set minimum height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.email-icon {
+    width: 120px; /* Larger icon */
+    height: 120px;
+    margin: -110px auto 0; /* Adjusted for larger icon */
+    display: block;
+    position: relative;
+}
+
+h1 {
+    font-size: 3rem; /* Increased font size */
+    font-weight: 700;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 1.8rem; /* Increased font size */
+    font-weight: 600;
+    margin-bottom: 25px;
+}
+
+p {
+    font-size: 1.3rem; /* Increased font size */
+    margin-bottom: 35px;
+}
+
+.resend-button {
+    background-color: #0037FF;
+    color: white;
+    border: none;
+    border-radius: 18px;
+    padding: 18px 35px; /* Larger button */
+    font-size: 1.3rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: block;
+    width: 80%; /* Not full width for better proportion */
+    margin: 0 auto 30px;
+}
+
+.resend-button:hover {
+    background-color: #002ccc;
+    transform: translateY(-2px);
+}
+
+.resend-button:active {
+    transform: translateY(1px);
+}
+
+.back-link {
+    color: #5B7EFF;
+    font-size: 1.4rem; /* Increased font size */
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 20px;
+    transition: color 0.3s ease;
+}
+
+.back-link:hover {
+    color: #0037FF;
+}
+
+.contact-message {
+    color: #ffffff;
+    font-size: 1.1rem;
+    text-align: center;
+    margin-top: 40px;
+    opacity: 0.8;
+}
