@@ -20,22 +20,30 @@
         <img src="user.png" alt="icon-user" class="user">
         <h1>Sign Up</h1>
         </div>
-        <form id="signin-form">
+        <form id="signup-form">
             <input class="username" type="text" id="username" placeholder="Username" required>
-            <input class="password" type="email" id="email" placeholder="Email" required>
+            <input class="email" type="email" id="email" placeholder="Email" required>
             <input class="password" type="password" id="password" placeholder="Password" required>
-            
-            <button class="login" type="submit">Login</button>
+
+            <a href="verification.html"><button class="login" type="submit">Sign Up</button></a>
 
         </form>
+
         <div class="info">
-    <a href="homepage.html"><h2>←Inapoi la hompage</h2></a>    
+            <div class="messages">
+    <a href="homepage.html"><h2 class="message1">←Inapoi la hompage</h2></a>    
+    <p class="message2">Ai cont pe Bioline? <a href="signin.html">Sign In</a></p>   
+</div>
         <div class="linie"></div>
         <div class="cerc1"></div>
         <div class="cerc2"></div>
         <div class="cerc3"></div>
     </div>
-
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    <script src="firebase-config.js"></script>
     <script src="script.js"></script>
+    <script src="signup.js"></script>
 </body>
 </html>

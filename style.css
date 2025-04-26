@@ -17,19 +17,52 @@ body {
 }
 
   
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: transparent;
-    color: white;
-    padding: 20px 25px 5px;
-    z-index: 1;
-  }
-  
-  .logo {
-    z-index: 2;
-  }
+.header {
+  display: flex;
+  justify-content: space-between; /* Ensures spacing between elements */
+  align-items: center;
+  background-color: transparent;
+  color: white;
+  padding: 20px 25px 5px;
+  z-index: 1;
+}
+
+.header .logo {
+  margin-right: auto; /* Pushes the logo to the left */
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* Creates space between elements on the right */
+}
+
+
+.header-right .signup-btn {
+  background-color: #3971ff; /* Green background for Sign Up button */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.header-right .signup-btn:hover {
+  background-color: #6243ff; /* Darker green on hover */
+}
+
+.header-right .hamburger {
+  display: flex; /* Make the hamburger visible for testing */
+  flex-direction: column;
+  gap: 5px;
+}
+
+.header-right .hamburger span {
+  width: 30px;
+  height: 4px;
+  background-color: white;
+}
 
   .bioloine{
     position: absolute;
@@ -109,12 +142,14 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    height: 300%;
+    height: 400%;
     object-fit: cover; 
     z-index: -1;
   }
   .page1{
     z-index: 0;
+    width: 100%;
+    height: 100vh;
   }
   .background-video {
     position: absolute;
@@ -165,8 +200,8 @@ body {
 }
 .page2 {
   position: relative;
-  margin-top: 906px;
   text-align: center;
+  margin-top: 200px;
   z-index: 1;
 }
 .visually-hidden {
@@ -306,9 +341,9 @@ body {
 }
 .muscle{
   position: absolute;
+  top:3100px;
   width: 1000px;
   height: 1000px;
-  top: 2000px;
   right: 0.0001%;
   z-index: 4;
 }
@@ -348,11 +383,17 @@ body {
   display: flex;
   z-index: 5;
 }
+.pete1, .pete2, .pete3{
+   bottom: 650px;
+}
+.pete4,.pete5, .pete6{
+  bottom: 650px;
+}
 .pete1{
   position: absolute;
   width: 300px;
   height: 300px;
-  top: 2050px;
+  left: 20px;
   opacity: 90%;
   z-index: 3;
 }
@@ -360,7 +401,6 @@ body {
   position: absolute;
   width: 250px;
   height: 250px;
-  top: 2130px;
   right: 1750px;
   z-index: 3;
   opacity: 90%;
@@ -370,7 +410,6 @@ body {
   position: absolute;
   width: 250px;
   height: 250px;
-  top: 2100px;
   right: 1550px;
   z-index: 3;
   opacity: 90%;
@@ -381,7 +420,7 @@ body {
   position: absolute;
   width: 300px;
   height: 300px;
-  top: 2050px;
+
   left: 1700px;
   opacity: 90%;
   z-index: 3;
@@ -390,7 +429,6 @@ body {
   position: absolute;
   width: 250px;
   height: 250px;
-  top: 2130px;
   left: 1600px;
   z-index: 3;
   opacity: 90%;
@@ -400,7 +438,7 @@ body {
   position: absolute;
   width: 250px;
   height: 250px;
-  top: 2100px;
+
   right: 140px;
   z-index: 3;
   opacity: 90%;
@@ -410,7 +448,6 @@ body {
   position: absolute;
   width: 400px;
   height: 410px;
-  top: 2600px;
   right: 1730px;
   z-index: 3;
 }
@@ -418,7 +455,7 @@ body {
   position: absolute;
   width: 80px;
   height: 80px;
-  top: 2600px;
+  top: 200px;
   right: 1300px;
   z-index: 3;
 }
@@ -426,7 +463,7 @@ body {
   position: absolute;
   width: 120px;
   height: 120px;
-  top: 2700px;
+
   right: 200px;
   z-index: 3;
 }
@@ -434,7 +471,7 @@ body {
   position: absolute;
   width: 60px;
   height: 60px;
-  top: 2300px;
+
   right:  1000px;
   z-index: 3;
 }
@@ -634,4 +671,335 @@ body {
 
 #send-btn:hover {
   background-color: #6753fd;
+}
+
+:root {
+  --primary-color: #d9a441;
+  --bg-color: #f9eaea;
+  --card-bg: #ffffff;
+  --progress-bg: #e0e0e0;
+  --text-color: #333333;
+  --link-color: #6474e4;
+}
+.signin {
+  padding: 150px 0;
+  position: relative;
+  z-index: 1;
+  min-height: 600px;
+}
+
+.container {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.progress-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 100px;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.progress-card {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  padding: 30px;
+  width: 880px;
+  height: 600px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.progress-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+.progress-card.inactive {
+  opacity: 0.7;
+  filter: grayscale(40%);
+}
+
+.progress-circle {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  margin: 0 auto 20px;
+}
+
+.progress-circle svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.progress-bg {
+  fill: none;
+  stroke: #e0e0e0;
+  stroke-width: 20;
+}
+
+.progress-bar {
+  fill: none;
+  stroke: #d9a441; /* Match your gold color scheme */
+  stroke-width: 20;
+  stroke-linecap: round;
+  transition: stroke-dasharray 0.5s ease;
+}
+
+.progress-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 36px;
+  font-weight: bold;
+  color: #d9a441; /* Match your gold color scheme */
+}
+
+.card-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333333;
+  margin-bottom: 20px;
+}
+
+.access-link {
+  display: inline-block;
+  color: #4a6df9;
+  text-decoration: none;
+  font-size: 18px;
+  margin-top: 10px;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.access-link:after {
+  content: '→';
+  margin-left: 5px;
+}
+
+.access-link:hover {
+  color: #2f4dc7;
+}
+
+.login-prompt {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  padding: 30px;
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+}
+
+.login-prompt p {
+  font-size: 22px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.signup-button {
+  display: inline-block;
+  background-color: #d9a441;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  text-decoration: none;
+}
+
+.signup-button:hover {
+  background-color: #c18d2a;
+  transform: translateY(-2px);
+}
+.nav-signup {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: #d9a441;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 100;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.nav-signup:hover {
+  background-color: #c18d2a;
+}
+.auth-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.65); /* Semi-transparent grey overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: all; /* Make sure overlay captures clicks */
+}
+
+.auth-overlay.fade-in {
+  opacity: 1;
+}
+
+.overlay-content {
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  padding: 30px 40px;
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  z-index: 11; /* Make sure it's above the overlay */
+}
+
+.overlay-content p {
+  font-size: 22px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.login-button {
+  display: inline-block;
+  background-color: #2d70ff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  text-decoration: none;
+}
+
+.login-button:hover {
+  background-color: #5188fe;
+  transform: translateY(-2px);
+}
+.progress-card.inactive {
+  opacity: 0.8;
+  filter: grayscale(50%);
+}
+.access-link {
+  display: inline-block;
+  color: #4a6df9;
+  text-decoration: none;
+  font-size: 18px;
+  margin-top: 10px;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.access-link:after {
+  content: '→';
+  margin-left: 5px;
+}
+
+.access-link:hover {
+  color: #2f4dc7;
+}
+#auth-content {
+  display: block;
+  min-height: 300px;
+}
+
+/* Make sure logged-in cards are always visible */
+.progress-card {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Define fallback for fade-in if animation fails */
+.progress-section {
+  display: flex !important;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  margin-bottom: 40px;
+  opacity: 1;
+}
+
+/* Improve visibility of progress text */
+.progress-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 36px;
+  font-weight: bold;
+  color: #d9a441;
+  text-shadow: 0 1px 1px rgba(0,0,0,0.1);
+}
+/* Container for the user section */
+.user-section {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* Align to the right of the container */
+  margin-right: 20px; /* Small margin on the right */
+}
+
+/* User Icon */
+.user-icon {
+  display: flex; /* Use flexbox for centering */
+  align-items: center; /* Vertically center the content */
+  justify-content: center; /* Horizontally center the content */
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+  background-color: white;
+  border: 3px solid rgb(254, 252, 252);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Ensure the image inside the user icon is centered and fits properly */
+.user-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image covers the container */
+}
+
+/* Hover effect for the user icon */
+.user-icon:hover {
+  transform: scale(1.1);
+}
+
+
+/* Login Button */
+.login-btn {
+  background-color: #4285f4;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease-in-out;
+  margin-left: 10px; /* Small margin between buttons */
+}
+
+/* Hover effect for login button */
+.login-btn:hover {
+  background-color: #3367d6;
 }

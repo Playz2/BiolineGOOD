@@ -88,11 +88,11 @@ body {
     opacity: 60%;  
   }
   .user{
-    width: 5vh;
-    height: 5vh;
+    width: 6vh;
+    height: 6vh;
     position: absolute;
-    top: 9%;
-    right: 66%;
+    top: 7%;
+    right: 62%;
   }
   .head{
     display: flex;
@@ -105,7 +105,7 @@ body {
     text-align: center;
     margin-top: 20px;
   }
-  .username, .password {
+  .username, .password, .email {
     position: relative; 
     display: block; 
     margin: 30px auto; 
@@ -123,13 +123,13 @@ body {
 .container {
     position: fixed;
     top: 13%;
-    left: 35%;
+    left: 30%;
     display: block;
     margin: 50px auto;
     border-radius: 40px;
     box-shadow: 0 20px 35px rgba(0, 0, 1, 0.9);
-    width: 30%; 
-    height: 65vh; 
+    width: 40%; 
+    height: 75vh; 
     z-index: -1;
     background-color: #ffffff; 
     padding: 20px; 
@@ -155,33 +155,73 @@ body {
     outline: none;
     transition: all 0.3s ease-in-out; 
   }
-  .message1{
-    top: 50%;
-    left: 20%;
-    width: 45%;
-    height: 5vh;
-    font-size: 1rem;
-    color: #141414;
-    font-weight: bold;
-  }
-  .message2{
-    top: 60%;
-    left: 20%;
-    width: 45%;
-    height: 5vh;
-    font-size: 1rem;
-    color: #141414;
-    font-weight: bold;
-
-  }
-  .info{
-    margin-top: 50px;
+  .info {
+    margin-top: 20px;
     display: flex;
     justify-content: center;
-  }
+    align-items: center;
+    gap: 10px; /* Adds spacing between elements */
+}
+.login:hover {
+  background-color: #0056FF; /* Slightly lighter blue */
+  transform: scale(1.05); /* Slightly enlarge the button */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Add a shadow effect */
+}
+.messages {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Aligns children horizontally */
+    gap: 10px; /* Adds spacing between message1 and message2 */
+}
+
+.message1, .message2 {
+    font-size: 1rem;
+    color: #141414;
+    font-weight: bold;
+    text-align: center;
+    display: inline-block; /* Ensures elements stay side by side */
+    margin: 0;
+}
+
+.message1{
+  margin-top: 40px;
+  margin-left: 12px;
+}
+.social-login {
+  display: flex;
+  justify-content: center;
+  gap: 15px; /* Space between buttons */
+  margin-top: 20px;
+}
+
+.social-login button {
+  width: 50px;
+  height: 50px;
+  background-color: white;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.social-login button img {
+  width: 24px;
+  height: 24px;
+}
+
+.social-login button:hover {
+  transform: scale(1.1);
+  border-color: #4c8bf5; /* Light blue border on hover */
+  box-shadow: 0 4px 10px rgba(76, 139, 245, 0.4);
+}
+
   .cerc1{
     position: absolute;
-    bottom: 580px;
+    bottom: 650px;
     left: 86%;
     width: 5vh;
     height: 5vh;
@@ -202,7 +242,7 @@ body {
   .cerc3{
     position: absolute;
     top: 570px;
-    right: 93%;
+    right: 95%;
     width: 6vh;
     height: 6vh;
     border-radius: 50%;
@@ -236,4 +276,46 @@ body {
 .container h2:hover {
   transform: scale(1.1); 
   color: #0037FF; 
+}
+#message-container {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  max-width: 80%;
+  min-width: 300px;
+  text-align: center;
+}
+
+.message {
+  padding: 15px 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin-bottom: 10px;
+  font-weight: 500;
+  animation: fadeIn 0.3s ease-in;
+}
+
+.success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+.warning {
+  background-color: #fff3cd;
+  color: #856404;
+  border: 1px solid #ffeeba;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
 }

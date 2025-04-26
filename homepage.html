@@ -8,23 +8,40 @@
 </head>
 <body>
   <header class="header">
-      <div class="logo"><img class="bioloine fade-in" src="bioline.png" alt="bioline"></div>
-      <div class="hamburger" id="hamburger">
-          <span></span>
-          <span></span>
-          <span></span>
+    <div class="logo">
+      <img class="bioloine fade-in" src="bioline.png" alt="bioline">
+    </div>
+    <div class="header-right">
+      <div class="user-icon" id="user-icon">
+        <a href="dashboard.html"><img src="user.png" alt="user"></a>
       </div>
+      <a href="signup.html">
+        <button class="signup-btn">Sign Up</button>
+      </a>
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
   </header>
+  
+
+  <section class="page1 fade-in">
       <video autoplay loop muted playsinline class="background-video">
           <source src="skele1b.mp4" type="video/mp4" class="fade-in">
       </video>
-  <section class="page1 fade-in">
-
       <div class="banner fade-in">
           <h1>Bun Venit la Bioline</h1>
       </div>
       <h2 class="fade-in">Învață anatomia și fiziologia aparatului locomotor </br> Elev:Colici-Mare Andrei </br>Professor:Atia-Mihaela Fodor</h2>
       <div class="line fade-in"></div>
+  </section>
+
+  <section class="signin">
+    <div id="auth-content" class="fade-in">
+
+  </div>
   </section>
 
   <section class="page2 fade-in">
@@ -53,10 +70,7 @@
       <div class="line7 fade-in"></div>
       <div class="line8 fade-in"></div>
       <a href="muschi membri inferior.html"><button class="button fade-in">Afla mai multe</button></a>
-  </section>
-
-
-  <img class="muscle fade-in" src="muscel.png" alt="Mușchi uman">
+  
   <img class="pete1 fade-in" src="pete.png" alt="">
   <img class="pete2 fade-in" src="pete.png" alt="">
   <img class="pete3 fade-in" src="pete1.png" alt="">
@@ -67,7 +81,8 @@
   <img class="cerc2 fade-in" src="cirle.png" alt="">
   <img class="cerc3 fade-in" src="cirle.png" alt="">
   <img class="cerc4 fade-in" src="cirle.png" alt="">
-
+    </section>
+<img class="muscle fade-in" src="muscel.png" alt="Mușchi uman">
 
 
   <img class="back" src="GRADIENT-WALLPAPER-4k.png" alt="gradient de fundal">
@@ -101,10 +116,31 @@
 
 
 
-
-
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+  <script src="firebase-config.js"></script>
+      <script src="Auth.js"></script>
       <script src="script.js"></script>
-      <script src="chatbot.js"></script>
-      
+      <script src="chatbot.js"></script>  
+      <script>
+        document.addEventListener('DOMContentLoaded', () => {
+    const signupButtonDiv = document.querySelector('.signup-btn').parentElement; // Parent of the Sign Up button
+    const userIconDiv = document.getElementById('user-icon');
+
+    // Listen for changes to the user's authentication state
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        // User is signed in
+        userIconDiv.style.display = 'block'; // Show the user icon
+        signupButtonDiv.style.display = 'none'; // Hide the Sign Up button
+      } else {
+        // User is not signed in
+        userIconDiv.style.display = 'none'; // Hide the user icon
+        signupButtonDiv.style.display = 'block'; // Show the Sign Up button
+      }
+    });
+  });
+      </script>
 </body>
 </html>
