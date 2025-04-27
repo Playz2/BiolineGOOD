@@ -17,27 +17,32 @@
     </header>
     <div class="container">
         <div class="head">
-        <img src="user.png" alt="icon-user" class="user">
-        <h1>Sign In</h1>
+            <img src="user.png" alt="icon-user" class="user">
+            <h1>Sign In</h1>
         </div>
         <form id="signin-form">
-            <input class="username" type="text" id="username" placeholder="Username" required>
-            <input class="password" type="password" id="password" placeholder="Password" required>
+            <input class="username" type="email" id="email" placeholder="Email" required>
+            <div class="password-container">
+                <input class="password" type="password" id="password" placeholder="Password" required>
+                <span class="toggle-password" id="toggle-password">👁️</span> <!-- Eye icon for password toggle -->
+            </div>
             <button class="login" type="submit">Login</button>
-
         </form>
         <div class="info">
-        <p class="message1"><a href="uitatparola.html">Ai uitat parola?</a></p>
-        <p class="message2">Nu ai cont pe Bioline? <a href="signup.html">Sign Up</a></p>
-     </div>
-    <a href="homepage.html"><h2>←Inapoi la hompage</h2></a>    
+            <p class="message1"><a href="uitatparola.html">Ai uitat parola?</a></p>
+            <p class="message2">Nu ai cont pe Bioline? <a href="signup.html">Sign Up</a></p>
+        </div>
+        <a href="homepage.html"><h2>←Inapoi la homepage</h2></a>
         <div class="linie"></div>
         <div class="cerc1"></div>
         <div class="cerc2"></div>
         <div class="cerc3"></div>
     </div>
 
-
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <script src="firebase-config.js"></script>
+    <script src="signin.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

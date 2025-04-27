@@ -155,6 +155,38 @@ body {
     outline: none;
     transition: all 0.3s ease-in-out; 
   }
+  /* Button Hover (Antimon Effect) */
+button.login {
+  background-color: #0037FF; /* Green */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button.login:hover {
+  background-color: #2d59f8; /* Slightly darker green */
+  transform: scale(1.05); /* Slightly enlarge the button */
+}
+
+/* Password Toggle Container */
+.password-container {
+  position: relative;
+  width: 100%;
+}
+
+
+
+.toggle-password {
+  position: absolute;
+  right: 70px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 18px;
+}
+
   .message1{
     top: 50%;
     left: 20%;

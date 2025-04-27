@@ -179,22 +179,59 @@ document.addEventListener('DOMContentLoaded', () => {
         return {
           scheletTests: 0,
           scheletTotal: 6,
+          tests: [],
           muschiiTests: 0,
-          muschiiTotal: 6
+          muschiiTotal: 6,
+          testm: [],
+          scheletLessonsEntered: [],
+          muschiiLessonsEntered: [],
+          scheletLessonsTotal: 11,
+          muschiiLessonsTotal: 11,
+          scheletLessonProgress: 0,
+          muschiiLessonProgress: 0
         };
       }
-
-      const userDoc = await firebase.firestore().collection('users').doc(userId).get();
+  
+      const userRef = firebase.firestore().collection('users').doc(userId);
+      const userDoc = await userRef.get();
+      
+      const defaultData = {
+        scheletTests: 0,
+        scheletTotal: 6,
+        tests: [],
+        muschiiTests: 0,
+        muschiiTotal: 6,
+        testm: [],
+        scheletLessonsEntered: [],
+        muschiiLessonsEntered: [],
+        scheletLessonsTotal: 11,
+        muschiiLessonsTotal: 11,
+        scheletLessonProgress: 0,
+        muschiiLessonProgress: 0
+      };
+  
       if (userDoc.exists) {
-        return userDoc.data();
+        const userData = userDoc.data();
+        const updatedData = { ...userData };
+  
+        // Check if fields are missing
+        let needsUpdate = false;
+        for (const key in defaultData) {
+          if (!(key in userData)) {
+            updatedData[key] = defaultData[key];
+            needsUpdate = true;
+          }
+        }
+  
+        if (needsUpdate) {
+          await userRef.update(updatedData);
+          console.log("User data updated with missing fields:", updatedData);
+        }
+  
+        return updatedData;
       } else {
-        const defaultData = {
-          scheletTests: 0,
-          scheletTotal: 6,
-          muschiiTests: 0,
-          muschiiTotal: 6
-        };
-        await firebase.firestore().collection('users').doc(userId).set(defaultData);
+        // Create new user document if doesn't exist
+        await userRef.set(defaultData);
         return defaultData;
       }
     } catch (error) {
@@ -202,12 +239,20 @@ document.addEventListener('DOMContentLoaded', () => {
       return {
         scheletTests: 0,
         scheletTotal: 6,
+        tests: [],
         muschiiTests: 0,
-        muschiiTotal: 6
+        muschiiTotal: 6,
+        testm: [],
+        scheletLessonsEntered: [],
+        muschiiLessonsEntered: [],
+        scheletLessonsTotal: 11,
+        muschiiLessonsTotal: 11,
+        scheletLessonProgress: 0,
+        muschiiLessonProgress: 0
       };
     }
   }
-
+  
   // Calculate stroke-dasharray value for the progress circle
   function calculateProgress(current, total) {
     if (!current || !total || total === 0) return 0;
