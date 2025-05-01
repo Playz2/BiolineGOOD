@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
             </svg>
             <div class="progress-text">${data.scheletTests}/${data.scheletTotal}</div>
           </div>
-          <h3 class="card-title">Test rezolvate la Schelet</h3>
+          <h3 class="card-title">Teste rezolvate la sistemul osos</h3>
           <a href="exerciti.html" class="access-link">Acceseaza testele</a>
         </div>
         
@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
             </svg>
             <div class="progress-text">${data.muschiiTests}/${data.muschiiTotal}</div>
           </div>
-          <h3 class="card-title">Test rezolvate la muschii</h3>
+          <h3 class="card-title">Test rezolvate la sistemul muscular </h3>
           <a href="exerciti.html" class="access-link">Acceseaza testele</a>
         </div>
       </div>
@@ -123,8 +123,8 @@ document.addEventListener('DOMContentLoaded', () => {
             </svg>
             <div class="progress-text">0/6</div>
           </div>
-          <h3 class="card-title">Test rezolvate la Schelet</h3>
-          <a href="/tests/schelet" class="access-link">Mergi la teste de la schelet</a>
+          <h3 class="card-title">Test rezolvate la sistemul osos</h3>
+          <a href="/tests/schelet" class="access-link">Mergi la teste de la sistemul osos</a>
         </div>
         
         <div class="progress-card inactive">
@@ -135,8 +135,8 @@ document.addEventListener('DOMContentLoaded', () => {
             </svg>
             <div class="progress-text">0/6</div>
           </div>
-          <h3 class="card-title">Test rezolvate la muschii</h3>
-          <a href="/tests/muschii" class="access-link">Mergi la teste de la muschii</a>
+          <h3 class="card-title">Test rezolvate la sistemul muscular</h3>
+          <a href="/tests/muschii" class="access-link">Mergi la teste de la sistemul muscular</a>
         </div>
       </div>
     `;
