@@ -45,9 +45,42 @@
                   <div class="slide fade-in"><img src="tehnician.png" alt="tehnician"></div>
               </div>
           </div>
-      
+
+
           <button id="nextBtn" class="slider-btn">&#10095;</button> 
       </div>
+          <div class="container">
+            <div class="news-header">
+                <h2>Știri de Biologie</h2>
+            </div>
+    
+            <div class="controls">
+                <div class="search-box">
+                    <input type="text" id="search-input" class="search-input" placeholder="Caută știri...">
+                    <button id="search-button" class="search-button">Caută</button>
+                </div>
+                <select id="source-select" class="source-select">
+                    <option value="biology">Biologie Generală</option>
+                    <option value="microbiology">Microbiologie</option>
+                    <option value="genetics">Genetică</option>
+                    <option value="ecology">Ecologie</option>
+                    <option value="biotech">Biotehnologie</option>
+                </select>
+            </div>
+    
+            <div id="error-message" class="error" style="display: none;">
+                A apărut o eroare la încărcarea știrilor. Vă rugăm să încercați din nou mai târziu.
+            </div>
+    
+            <div id="loading" class="loading">Se încarcă știrile...</div>
+    
+            <div id="news-container" class="news-container"></div>
+    
+            <div class="pagination">
+                <button id="prev-page" class="pagination-button" disabled>Înapoi</button>
+                <button id="next-page" class="pagination-button">Înainte</button>
+            </div>
+        </div>
       <section class="page2">
         <img class="craiova" src="craivoa.jpg" alt="craiova">
     
@@ -107,5 +140,6 @@
       <script src="careerScript.js"></script>
       <script src="script.js"></script>
       <script src="chatbot.js"></script>
+      <script src="stiri.js"></script>
 </body>
 </html>

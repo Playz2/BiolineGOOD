@@ -204,134 +204,121 @@ body {
   display: flex;
   z-index: 5;
 }
-.page2 {
-  position: relative;
-  text-align: center;
-  margin-top: 200px;
-  z-index: 1;
-}
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  border: 0;
-}
+ .page2 {
+            width: 100%;
+            height: 100vh;
+            position: relative;
+        }
 
-.featured-section {
-  width: 599px;
-  height: 908px;
-  background-color: rgba(217, 217, 217, 1);
-  border-radius: 85px;
-  display: flex;
-  margin: 0 auto;
-}
+        .section-skeleton {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
 
-.skelete{
-  position: relative;
-  left: 170px;
-}
-.line2{
-  background-color: rgba(70, 61, 61, 0.938);
-  position:absolute;
-  top: 60px;
-  left: 460px;
-  width: 453px;
-  min-height: 2px;
-  display: flex;
-  z-index: 2;
-}
-.page2 h1{
-  color: rgb(241, 241, 241);
-  font-size: 1.5rem;
-  position: absolute;
-  top: 40px;
-  left: 220px;
-}
+        .container-skeleton {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
 
-.line3{
-  background-color: rgba(70, 61, 61, 0.938);
-  position:absolute;
-  top: 230px;
-  right: 460px;
-  width: 453px;
-  min-height: 2px;
-  display: flex;
-  z-index: 2;
-}
-.page2 h2{
-  color: rgb(241, 241, 241);
-  font-size: 1.5rem;
-  position: absolute;
-  top: 210px;
-  right: 200px;
-}
+        .text-sections {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            z-index: 1;
+            color: rgb(235, 233, 233);
+        }
 
-.line4{
-  background-color: rgba(70, 61, 61, 0.938);
-  position:absolute;
-  top: 350px;
-  left: 460px;
-  width: 473px;
-  min-height: 2px;
-  display: flex;
-  z-index: 2;
-}
-.page2 h3{
-  color: rgb(241, 241, 241);
-  font-size: 1.5rem;
-  position: absolute;
-  top: 330px;
-  left: 200px;
-}
-.line5{
-  background-color: rgba(94, 81, 81, 0.938);
-  position:absolute;
-  top: 460px;
-  right: 532px;
-  width: 310px;
-  min-height: 2px;
-  display: flex;
-  z-index: 2;
-  transform: rotate(23deg)
-}
-.line6{
-  background-color: rgba(70, 61, 61, 0.938);
-  position:absolute;
-  top: 630px;
-  right: 520px;
-  width: 390px;
-  min-height: 2px;
-  display: flex;
-  z-index: 2;
-  transform: rotate(-25deg)
-}
-.page2 h4{
-  color: rgb(241, 241, 241);
-  font-size: 1.5rem;
-  position: absolute;
-  top: 445px;
-  right:15px;
-}
+        .text-section {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            font-size: 6vw;
+            font-weight: bold;
+            opacity: 0.7;
+            cursor: pointer;
+            transition: all 0.3s ease, flex 0.4s ease;
+            position: relative;
+        }
+        
+        .text-section:hover {
+            flex: 2.5; 
+        }
 
-.page2 h5{
-  color: rgb(241, 241, 241);
-  font-size: 1.5rem;
-  position: absolute;
-  top: 613px;
-  right:15px;
-}
+        /* Left and right alternating text sections */
+        .text-section:nth-child(odd) {
+            padding-left: 5%;
+            justify-content: flex-start;
+        }
 
+        .text-section:nth-child(even) {
+            padding-right: 5%;
+            justify-content: flex-end;
+        }
 
-.page2 h1:hover, .page2 h2:hover, .page2 h3:hover, .page2 h4:hover, .page2 h5:hover {
-  color: rgba(255, 153, 0, 1);
-  transform: scale(1.1);
-  transition: all 0.6s ease-in-out;
-  cursor: pointer;
-}
+        .text-section:hover {
+            opacity: 1;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.442);
+            /* Note: The flex expansion is now in the main .text-section:hover rule above */
+        }
+
+        .skeleton-image {
+            height: 80vh;
+            max-width: 100%;
+            filter: drop-shadow(0px 0px 10px rgba(255, 255, 255, 0.3));
+        }
+
+        /* Divider lines */
+        .divider {
+            width: 100%;
+            height: 1px;
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Body part highlight images */
+        .body-part-image {
+            position: absolute;
+            max-height: 40vh;
+            max-width: 40vw;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.4s ease, visibility 0.4s ease;
+            filter: drop-shadow(0px 0px 15px rgba(255, 255, 255, 0.5));
+            pointer-events: none;
+        }
+
+        .text-section:nth-child(odd) .body-part-image {
+            right: 10%;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .text-section:nth-child(even) .body-part-image {
+            left: 10%;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .text-section:hover .body-part-image {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Fade-in animation */
+        .fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
 
 .page3 {
   position: relative;
@@ -347,7 +334,7 @@ body {
 }
 .muscle{
   position: absolute;
-  top:3100px;
+  top:2900px;
   width: 1000px;
   height: 1000px;
   right: 0.0001%;
@@ -575,6 +562,7 @@ body {
   bottom: 0;
   right: 0;
   border-radius: 0;
+  z-index: 1000;
 }
 
 .chat-header {
@@ -897,6 +885,7 @@ body {
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
   text-decoration: none;
+  z-index: 12;
 }
 
 .login-button:hover {

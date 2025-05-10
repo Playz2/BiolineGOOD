@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intro Bioline</title>
+    <link rel="stylesheet" href="introstyle.css">
+</head>
+<body>
+    <video autoplay loop muted playsinline class="background-video">
+        <source src="bioor.mp4" type="video/mp4" class="bioline">
+    </video>
+    <div class="button-container">
+        <a href="homepage.html">
+            <button class="enter-button">Incepeti carierea in medicina</button>
+        </a>
+    </div>
+    <div class="overlay" id="circles-overlay"></div>
+    <script>
+            document.addEventListener('DOMContentLoaded', function() {
+            const overlay = document.getElementById('circles-overlay');
+            const circleSizes = [50, 75, 100, 150, 200, 250];
+            const circleCount = 12;
+            const circles = [];
+            
+            // Create circles
+            for (let i = 0; i < circleCount; i++) {
+                createCircle();
+            }
+            
+            function createCircle() {
+                const circle = document.createElement('div');
+                circle.classList.add('circle');
+                
+                // Random size from the sizes array
+                const sizeIndex = Math.floor(Math.random() * circleSizes.length);
+                const size = circleSizes[sizeIndex];
+                circle.style.width = size + 'px';
+                circle.style.height = size + 'px';
+                
+                // Random position
+                const x = Math.random() * window.innerWidth;
+                const y = Math.random() * window.innerHeight;
+                circle.style.left = x + 'px';
+                circle.style.top = y + 'px';
+                
+                // Random opacity
+                circle.style.opacity = 0.1 + Math.random() * 0.4;
+                
+                overlay.appendChild(circle);
+                
+                // Add velocity properties
+                const velocity = {
+                    x: -1.5 + Math.random() * 3,
+                    y: -1.5 + Math.random() * 3
+                };
+                
+                circles.push({
+                    element: circle,
+                    x: x,
+                    y: y,
+                    velocity: velocity,
+                    size: size
+                });
+            }
+            
+            // Animation loop
+            function animateCircles() {
+                circles.forEach(circle => {
+                    // Update position based on velocity
+                    circle.x += circle.velocity.x;
+                    circle.y += circle.velocity.y;
+                    
+                    // Bounce off walls
+                    if (circle.x <= 0 || circle.x >= window.innerWidth - circle.size) {
+                        circle.velocity.x *= -1;
+                    }
+                    
+                    if (circle.y <= 0 || circle.y >= window.innerHeight - circle.size) {
+                        circle.velocity.y *= -1;
+                    }
+                    
+                    // Apply new position
+                    circle.element.style.left = circle.x + 'px';
+                    circle.element.style.top = circle.y + 'px';
+                });
+                
+                requestAnimationFrame(animateCircles);
+            }
+            
+            // Start animation
+            animateCircles();
+            
+            // Handle window resize
+            window.addEventListener('resize', function() {
+                circles.forEach(circle => {
+                    // Keep circles within bounds after resize
+                    if (circle.x > window.innerWidth - circle.size) {
+                        circle.x = window.innerWidth - circle.size;
+                    }
+                    if (circle.y > window.innerHeight - circle.size) {
+                        circle.y = window.innerHeight - circle.size;
+                    }
+                });
+            });
+            // Add after existing circles animation code
+function createSquares() {
+    const squareSizes = [30, 45, 60];
+    const squareCount = 8;
+    
+    for (let i = 0; i < squareCount; i++) {
+        const square = document.createElement('div');
+        square.classList.add('square');
+        
+        const size = squareSizes[Math.floor(Math.random() * squareSizes.length)];
+        square.style.width = size + 'px';
+        square.style.height = size + 'px';
+        
+        square.style.left = Math.random() * window.innerWidth + 'px';
+        square.style.top = Math.random() * window.innerHeight + 'px';
+        
+        overlay.appendChild(square);
+    }
+}
+
+createSquares();
+        });
+    </script>
+</body>
+</html>
