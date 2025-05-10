@@ -167,60 +167,64 @@ body {
   }
   .cutie1{
     position: relative;
-    background-color: rgb(243, 142, 41);
-    width:838px;
-    height:692px;
-    left:600px;
+    background-color: rgb(63, 63, 63);
+    width:1900px;
+    height:322px;
+    left:250px;
     top:300px;
   }
   .cutie1 h1{
     position: relative;
-    color:black;
+  color:rgb(217,217,217);
     font-weight: bolder;
-    font-size: 4rem;
+    font-size: 3rem;
+    max-width: 1500px;
   }
   .cutie1 p{
     position: relative;
-    color:#000000;
+   color:rgb(217,217,217);
     font-weight: bolder;
-    font-size: 4rem;
+    font-size: 2rem;
+    max-width: 1600px;
   }
   .cutie2{
-    position: relative;
-    background-color: rgb(217, 217, 217);
-    width:1078px;
-    height:524px;
-    left:500px;
+     position: relative;
+    background-color: rgb(63, 63, 63);
+    width:1900px;
+    height:522px;
+    left:250px;
     top:300px;
   }
   .cutie2 p{
     position: relative;
-    color:#000000;
+    color:rgb(217,217,217);
     font-weight: bolder;
-    font-size: 4rem;
+    font-size: 2rem;
+    max-width: 1500px;
   }
   .sac{
     position: relative;
-    width:1670px;
-    height:610px;
-    left:250px;
-    top:300px;
+    width:1070px;
+    height:310px;
+    left:520px;
+   bottom:50px;
   }
 
   .cutie3{
     position: relative;
-    width:1267px;
-    height:524px;
+    
     background-color: rgb(63, 63, 63);
-    left:400px;
-    top:320px;
+    width:1900px;
+    height:122px;
+    left:250px;
+    bottom:50px;
   }
   .cutie3 p{
     position: relative;
     color:rgb(217,217,217);
     font-weight: bolder;
-    font-size: 5rem;
-    top:10px;
+    font-size: 2rem;
+    
     left:10px;
   }
   .sac1{
@@ -248,18 +252,18 @@ body {
     left:10px;
   }
   .cutie5{
-    position: relative;
-    width:1267px;
-    height:724px;
-    background-color: rgb(243, 142, 41);
-    left:400px;
-    top:400px;
+     position: relative;
+    background-color: rgb(9, 95, 121);
+    width:1900px;
+    height:322px;
+    left:250px;
+    
   }
   .cutie5 p{
     position: relative;
-    color:black;
+     color:rgb(217,217,217);
     font-weight: bolder;
-    font-size: 3rem;
+    font-size: 2rem;
     top:10px;
     left:10px;
   }

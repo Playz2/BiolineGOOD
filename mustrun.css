@@ -295,9 +295,10 @@ top:100px;
 .linie2{
     position: relative;
     background-color: rgb(243, 142, 41);
-    width:1508px;
+    width:1908px;
  height:2px;
 bottom:892px;
+left:250px;
 }
 .patrat6{
     position: relative;

@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proprietățile mușchilor</title>
+    <link rel="stylesheet" href="propietati.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <style>
+        :root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --accent-color: #e74c3c;
+    --text-color: #333;
+    --light-bg: #f8f9fa;
+    --dark-bg: #2c3e50;
+    --sidebar-width: 280px;
+    --card-radius: 8px;
+    --transition-speed: 0.3s;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--light-bg);
+    overflow-x: hidden;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: var(--sidebar-width);
+    height: 100%;
+    background-color: var(--dark-bg);
+    color: white;
+    overflow-y: auto;
+    transition: transform var(--transition-speed);
+    z-index: 1000;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%);
+    }
+    
+    .sidebar.open {
+        transform: translateX(0);
+    }
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-header h2 {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.close-sidebar {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .close-sidebar {
+        display: block;
+    }
+}
+
+.capitol {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.capitol-btn {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    background: none;
+    border: none;
+    text-align: left;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color var(--transition-speed);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.capitol-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.capitol-btn::after {
+    content: "+";
+    font-size: 1.2rem;
+}
+
+.lectii {
+    display: none;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.lectii a {
+    display: block;
+    padding: 0.75rem 1.5rem 0.75rem 2.5rem;
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: background-color var(--transition-speed);
+}
+
+.lectii a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+/* Main Content */
+.content {
+    margin-left: var(--sidebar-width);
+    padding: 2rem;
+    max-width: 100%;
+}
+
+@media (max-width: 768px) {
+    .content {
+        margin-left: 0;
+    }
+}
+
+.menu-toggle {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 999;
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+}
+
+.menu-toggle span {
+    width: 100%;
+    height: 3px;
+    background-color: var(--primary-color);
+    border-radius: 3px;
+}
+
+header {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+/* Property Cards */
+.property-card {
+    background-color: white;
+    border-radius: var(--card-radius);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.property-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.property-card h2 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #eee;
+}
+
+.property-card p {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.property-card p:last-child {
+    margin-bottom: 0;
+}
+
+/* Special styling for different property cards */
+#contractilitatea {
+    border-left: 5px solid #3498db;
+}
+
+#excitabilitatea {
+    border-left: 5px solid #2ecc71;
+}
+
+#extensibilitatea {
+    border-left: 5px solid #e74c3c;
+}
+
+#elasticitatea {
+    border-left: 5px solid #f39c12;
+}
+
+#tonusul {
+    border-left: 5px solid #9b59b6;
+}
+    </style>
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h2>Sistemul Muscular</h2>
+            <button class="close-sidebar" id="close-sidebar">×</button>
+        </div>
+        
+        <div class="capitol">
+            <button class="capitol-btn">Clasificarea muschilor</button>
+            <div class="lectii">
+                <a href="clasmus.html">Clasificarea muschilor dupa forma</a>
+            </div>
+        </div>
+        
+        <div class="capitol">
+            <button class="capitol-btn">Structura muschilor</button>
+            <div class="lectii">
+                <a href="strct-musch.html">Structura muschilor</a>
+            </div>
+        </div>
+        
+        <div class="capitol">
+            <button class="capitol-btn">Principalele grupe de muschi</button>
+            <div class="lectii">
+                <a href="cap.html">Muschii capului</a>
+                <a href="gat.html">Muschii gatului</a>
+                <a href="mustrun.html">Muschii trunchiului</a>
+                <a href="mussup.html">Muschii membrelor superioare</a>
+                <a href="muschi membri inferior.html">Muschii membrelor inferioare</a>
+            </div>
+        </div>
+        
+        <div class="capitol">
+            <button class="capitol-btn">Fiziologia muschilor scheletici</button>
+            <div class="lectii">
+                <a href="fiziologie.html">Fiziologia</a>
+                <a href="patologie.html">Propietati</a>
+                <a href="Manifestarile.html">Manifestarile contractiei musculare</a>
+            </div>
+        </div>
+        
+        <div class="capitol">
+            <button class="capitol-btn">Notiuni de igiena si patologie</button>
+            <div class="lectii">
+                <a href="patologiemuschi.html">Notiuni de igiena si patologie</a>
+            </div>
+        </div>
+    </div>
+
+    <main class="content">
+        <div class="menu-toggle" id="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <header>
+            <h1>Proprietățile mușchilor</h1>
+        </header>
+
+        <section class="property-card" id="contractilitatea">
+            <h2>Contractilitatea</h2>
+            <p>Este proprietatea specifică mușchiului și reprezintă capacitatea de a dezvolta tensiune între capetele sale sau de a se scurta.</p>
+            <p>Baza anatomică a contractilității este sarcomerul, iar baza moleculară o constituie proteinele contractile.</p>
+            <p>Sarcomerul este unitatea morfofuncțională a miofibrilei și este cuprins între două membrane Z.</p>
+        </section>
+
+        <section class="property-card" id="excitabilitatea">
+            <h2>Excitabilitatea</h2>
+            <p>Se datorează proprietăților membranei celulare (permeabilitate selectivă, conductanță ionicǎ, polarizare electrică, pompe ionice).</p>
+            <p>Mușchii răspund la un stimul printr-un potențial de acțiune propagat, urmat de contracția caracteristică. Între manifestarea electrică de la nivelul membranei fibrei musculare și fenomenele mecanice de la nivelul sarcomerului se produce un lanț de reacții fizico-chimice, numit cuplaj excitație-contracție.</p>
+        </section>
+
+        <section class="property-card" id="extensibilitatea">
+            <h2>Extensibilitatea</h2>
+            <p>Este proprietatea mușchiului de a se alungi pasiv sub acțiunea unei forțe exterioare. Substratul anatomic al extensibilității îl reprezintă fibrele conjunctive și elastice din mușchi.</p>
+        </section>
+
+        <section class="property-card" id="elasticitatea">
+            <h2>Elasticitatea</h2>
+            <p>Este proprietatea specifică mușchilor de a se deforma sub acțiunea unei forțe și de a reveni pasiv la forma de repaus atunci când forța a încetat să acționeze. Baza anatomică a acestei proprietăți o reprezintă fibrele elastice din structura perimisiumului.</p>
+        </section>
+
+        <section class="property-card" id="tonusul">
+            <h2>Tonusul muscular</h2>
+            <p>Este o stare de tensiune permanentă, caracteristică mușchilor care au inervație motorie somatică și senzitivă intacte. După denervare, tonusul mușchilor scheletici dispare. Tonusul muscular este de natură reflexă.</p>
+        </section>
+    </main>
+
+    <script src="scriptsidebar.js"></script>
+    <script>
+        // Simple sidebar toggle functionality
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            document.getElementById('sidebar').classList.toggle('open');
+        });
+        
+        document.getElementById('close-sidebar').addEventListener('click', function() {
+            document.getElementById('sidebar').classList.remove('open');
+        });
+
+        // Expand/collapse for sidebar menu items
+        document.querySelectorAll('.capitol-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const lectiiDiv = this.nextElementSibling;
+                lectiiDiv.style.display = lectiiDiv.style.display === 'block' ? 'none' : 'block';
+            });
+        });
+    </script>
+</body>
+</html>
