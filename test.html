@@ -10,8 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <style>
-        :root {
+    <style>:root {
     --primary-color: #2c3e50;
     --secondary-color: #3498db;
     --accent-color: #e74c3c;
@@ -37,103 +36,64 @@ body {
     overflow-x: hidden;
 }
 
-/* Sidebar Styles */
+/* Sidebar Styles - Keeping original styling */
 .sidebar {
     position: fixed;
     top: 0;
-    left: 0;
-    width: var(--sidebar-width);
-    height: 100%;
-    background-color: var(--dark-bg);
-    color: white;
-    overflow-y: auto;
-    transition: transform var(--transition-speed);
+    bottom: 0;
+    width: 250px;
+    background-color: rgb(217, 217, 217);
+    overflow: auto;
+    padding-top: 10px;
     z-index: 1000;
-    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
 }
-
-@media (max-width: 768px) {
-    .sidebar {
-        transform: translateX(-100%);
-    }
-    
-    .sidebar.open {
-        transform: translateX(0);
-    }
+  
+.sidebar a {
+    display: block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #000000;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
 }
-
-.sidebar-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.5rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.sidebar-header h2 {
-    font-size: 1.2rem;
-    font-weight: 600;
-}
-
-.close-sidebar {
-    background: none;
-    border: none;
+  
+.sidebar a:hover {
     color: white;
-    font-size: 1.5rem;
-    cursor: pointer;
-    display: none;
+    background-color: #444;
 }
-
-@media (max-width: 768px) {
-    .close-sidebar {
-        display: block;
-    }
+  
+.sidebar h2 {
+    color: #000000;
+    padding-left: 20px;
 }
-
+  
 .capitol {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 10px;
 }
-
+  
 .capitol-btn {
     width: 100%;
-    padding: 1rem 1.5rem;
-    background: none;
+    background-color: #ccc;
     border: none;
+    padding: 10px;
     text-align: left;
-    color: white;
     font-size: 1rem;
     cursor: pointer;
-    transition: background-color var(--transition-speed);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    transition: background-color 0.3s;
 }
-
+  
 .capitol-btn:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: #bbb;
 }
-
-.capitol-btn::after {
-    content: "+";
-    font-size: 1.2rem;
-}
-
+  
 .lectii {
     display: none;
-    background-color: rgba(0, 0, 0, 0.2);
+    padding-left: 20px;
 }
-
+  
 .lectii a {
+    padding: 8px 10px;
     display: block;
-    padding: 0.75rem 1.5rem 0.75rem 2.5rem;
-    color: rgba(255, 255, 255, 0.8);
-    text-decoration: none;
-    transition: background-color var(--transition-speed);
-}
-
-.lectii a:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: white;
 }
 
 /* Main Content */
@@ -149,32 +109,38 @@ body {
     }
 }
 
-.menu-toggle {
-    position: fixed;
-    top: 1rem;
-    left: 1rem;
-    display: none;
+/* Original hamburger menu */
+.header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: transparent;
+    color: white;
+    padding: 20px 25px 5px;
+}
+  
+.hamburger {
+    display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    width: 30px;
-    height: 20px;
-    background: transparent;
-    border: none;
     cursor: pointer;
-    z-index: 999;
+    gap: 5px;
 }
-
-@media (max-width: 768px) {
-    .menu-toggle {
-        display: flex;
-    }
-}
-
-.menu-toggle span {
-    width: 100%;
+  
+.hamburger span {
+    width: 25px;
     height: 3px;
     background-color: var(--primary-color);
-    border-radius: 3px;
+    border-radius: 5px;
+    transition: all background-color 0.8s ease-in-out;
+    cursor: pointer;
+}
+  
+.hamburger:hover{
+    background-color: #000000;
+    opacity: 40%;
+}
+.hamburger:active{
+    background-color: #5a1010;
 }
 
 header {
@@ -241,18 +207,15 @@ header h1 {
 
 #tonusul {
     border-left: 5px solid #9b59b6;
-}
-    </style>
-    <div class="sidebar" id="sidebar">
-        <div class="sidebar-header">
-            <h2>Sistemul Muscular</h2>
-            <button class="close-sidebar" id="close-sidebar">×</button>
-        </div>
-        
+}</style>
+    <div class="sidebar">
+        <h2>Sistemul Muscular</h2>
+    
         <div class="capitol">
             <button class="capitol-btn">Clasificarea muschilor</button>
             <div class="lectii">
                 <a href="clasmus.html">Clasificarea muschilor dupa forma</a>
+              
             </div>
         </div>
         
@@ -265,38 +228,40 @@ header h1 {
         
         <div class="capitol">
             <button class="capitol-btn">Principalele grupe de muschi</button>
-            <div class="lectii">
-                <a href="cap.html">Muschii capului</a>
-                <a href="gat.html">Muschii gatului</a>
-                <a href="mustrun.html">Muschii trunchiului</a>
-                <a href="mussup.html">Muschii membrelor superioare</a>
-                <a href="muschi membri inferior.html">Muschii membrelor inferioare</a>
-            </div>
-        </div>
+           <div class="lectii">
+                <a href="cap.html">muschii capului</a>
+                <a href="gat.html">muschii gatului</a>
+                <a href="mustrun.html">muschii trunchiului</a>
+                <a href="mussup.html">muschii membrelor superioare</a>
+                <a href="muschi membri inferior.html">muschii membrelor inferioare</a>
+              </div>
+          </div>
+        
+          <div class="capitol">
+            <button class="capitol-btn">fiziologia muschilor scheletici</button>
+           <div class="lectii">
+                <a href="fiziologie.html">fiziologia</a>
+                <a href="patologie.html">propietati</a>
+                <a href="Manifestarile.html">manifestarile contractiei musculare</a>
+              </div>
+          </div>
         
         <div class="capitol">
-            <button class="capitol-btn">Fiziologia muschilor scheletici</button>
-            <div class="lectii">
-                <a href="fiziologie.html">Fiziologia</a>
-                <a href="patologie.html">Propietati</a>
-                <a href="Manifestarile.html">Manifestarile contractiei musculare</a>
-            </div>
-        </div>
-        
-        <div class="capitol">
-            <button class="capitol-btn">Notiuni de igiena si patologie</button>
-            <div class="lectii">
-                <a href="patologiemuschi.html">Notiuni de igiena si patologie</a>
-            </div>
-        </div>
+            <button class="capitol-btn">notiuni de igiena si patologie</button>
+           <div class="lectii">
+                <a href="patologiemuschi.html">notiuni de igiena si patologie</a>
+              </div>
+          </div>
     </div>
 
     <main class="content">
-        <div class="menu-toggle" id="menu-toggle">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
+        <header class="header">
+            <div class="hamburger" id="hamburger">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+        </header>
 
         <header>
             <h1>Proprietățile mușchilor</h1>
@@ -333,22 +298,7 @@ header h1 {
 
     <script src="scriptsidebar.js"></script>
     <script>
-        // Simple sidebar toggle functionality
-        document.getElementById('menu-toggle').addEventListener('click', function() {
-            document.getElementById('sidebar').classList.toggle('open');
-        });
-        
-        document.getElementById('close-sidebar').addEventListener('click', function() {
-            document.getElementById('sidebar').classList.remove('open');
-        });
-
-        // Expand/collapse for sidebar menu items
-        document.querySelectorAll('.capitol-btn').forEach(button => {
-            button.addEventListener('click', function() {
-                const lectiiDiv = this.nextElementSibling;
-                lectiiDiv.style.display = lectiiDiv.style.display === 'block' ? 'none' : 'block';
-            });
-        });
+        // Original sidebar functionality is preserved through scriptsidebar.js
     </script>
 </body>
 </html>
