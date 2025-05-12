@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>forum</title>
+    <link rel="stylesheet" href="forum.css">
+</head>
+<body>
+     <header class="header">
+    <a href="homepage.html" class="logo">Bioline</a>
+    <div class="nav-controls">
+      <button class="create-post" id="mobileCreatePost">+</button>
+      <div class="profile-btn" id="profileBtn">
+        <!-- User avatar will be added dynamically -->
+      </div>
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </header>
+
+  <div class="main-container">
+    <div class="sidebar">
+      <div class="topics-title">Subiecte</div>
+      <div id="topicsList">
+        <!-- Topics will be loaded dynamically -->
+      </div>
+      <button id="createTopicBtn" class="create-topic-btn" style="display: flex; align-items: center; gap: 8px; margin-top: 15px; padding: 8px 15px; background-color: #4CAF50; color: white; border: none; border-radius: 4px; cursor: pointer; width: 100%;">
+        <span style="font-size: 18px;">+</span> Creați un subiect nou
+      </button>
+    </div>
+    
+    <div class="content">
+      <h1 class="forum-title">Incepe conversatia</h1>
+      
+      <div class="login-message" id="loginMessage">
+        Trebuie să fii autentificat pentru a crea postări.
+        <a href="signin.html" style="text-decoration: none;"><button class="login-btn" id="loginBtn">Login</button></a>
+      </div>
+      
+      <div class="create-post-area" id="createPostArea">
+        <div class="create-post-header">
+          <div class="user-avatar" id="userAvatar">
+            <!-- User avatar will be added dynamically -->
+          </div>
+          <div class="user-name" id="userName"><!-- User name will be added dynamically --></div>
+        </div>
+        <textarea class="post-input" id="postInput" placeholder="Începe o discuție..."></textarea>
+        <div class="post-actions">
+          <input type="file" id="imageUpload" accept="image/*" style="display: none;">
+          <button class="upload-btn" id="uploadBtn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+              <circle cx="8.5" cy="8.5" r="1.5"></circle>
+              <path d="M21 15l-5-5L5 21"></path>
+            </svg>
+            Add Image
+          </button>
+          <button class="post-btn" id="postBtn" disabled>incarca</button>
+        </div>
+        <div id="imagePreview" style="margin-top: 10px;"></div>
+      </div>
+      
+      <div class="posts-container" id="postsContainer">
+        <!-- Posts will be added dynamically here -->
+      </div>
+    </div>
+  </div>
+  
+  <div class="auth-modal" id="authModal">
+    <div class="auth-container">
+      <div class="auth-header">
+        <div class="auth-title">Login</div>
+        <button class="close-btn" id="closeAuthBtn">&times;</button>
+      </div>
+      <div class="error-message" id="authError"></div>
+      <form class="auth-form" id="authForm">
+        <input type="email" class="auth-input" id="emailInput" placeholder="Email" required>
+        <input type="password" class="auth-input" id="passwordInput" placeholder="Password" required>
+        <button type="submit" class="auth-btn" id="authSubmitBtn">Login</button>
+      </form>
+      <div class="auth-switch">
+        <span>Don't have an account?</span>
+        <a href="signup.html" class="auth-switch-btn">Sign Up</a>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Create Topic Modal -->
+  <div class="auth-modal" id="createTopicModal">
+    <div class="auth-container">
+      <div class="auth-header">
+        <div class="auth-title">Creați un subiect nou</div>
+        <button class="close-btn" id="closeTopicBtn">&times;</button>
+      </div>
+      <form class="auth-form" id="topicForm">
+        <input type="text" class="auth-input" id="topicTitle" placeholder="Titlul subiectului" required>
+        <textarea class="auth-input" id="topicDescription" placeholder="Descrierea subiectului" style="min-height: 100px;" required></textarea>
+        <button type="submit" class="auth-btn" id="createTopicBtn">Creați subiect</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Firebase Scripts -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-storage-compat.js"></script>
+  <script src="firebase-config.js"></script>
+      <script src="script.js"></script>
+      <script src="forum.js"></script>
+</body>
+</html>
