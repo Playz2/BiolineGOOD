@@ -540,7 +540,6 @@ document.addEventListener('DOMContentLoaded', function() {
   postBtn.addEventListener('click', createPost);
   closeAuthBtn.addEventListener('click', closeAuthModal);
   authForm.addEventListener('submit', handleAuth);
-  profileBtn.addEventListener('click', handleProfileClick);
   postInput.addEventListener('input', updatePostButtonState);
   createTopicBtn.addEventListener('click', showTopicModal);
   closeTopicBtn.addEventListener('click', closeTopicModal);

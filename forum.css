@@ -6,7 +6,9 @@
     }
     
     body {
-      background-color: #f0f2f5;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      min-height: 100vh;
+      background-attachment: fixed;
     }
     
     .header {
@@ -35,7 +37,7 @@
     }
     
     .create-post {
-      background-color: #4CAF50;
+      background-color: #1696ff;
       color: white;
       border: none;
       border-radius: 50%;
@@ -160,6 +162,8 @@
       border-radius: 50%;
       background-color: #ddd;
       margin-right: 10px;
+      padding-left: 15px;
+      padding-top: 12px ;
       overflow: hidden;
     }
     
@@ -196,7 +200,7 @@
     
     .post-btn {
       padding: 8px 16px;
-      background-color: #4CAF50;
+      background-color: #1bb7f0;
       color: white;
       border: none;
       border-radius: 4px;
@@ -345,7 +349,7 @@
     
     .auth-btn {
       padding: 10px;
-      background-color: #4CAF50;
+      background-color: #13a6ef;
       color: white;
       border: none;
       border-radius: 4px;
@@ -399,7 +403,7 @@
   border-radius: 50%;
   overflow: hidden;
   margin-right: 8px;
-  background-color: #4CAF50;
+  background-color: #1387b2;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -452,7 +456,7 @@
 
 .comment-submit-btn {
   align-self: flex-end;
-  background-color: #4CAF50;
+  background-color: #0084e2;
   color: white;
   border: none;
   border-radius: 4px;
@@ -462,13 +466,13 @@
 }
 
 .comment-submit-btn:hover {
-  background-color: #45a049;
+  background-color: #3ec4fd;
 }
 
 .comment-submit-btn:disabled {
   background-color: #cccccc;
   cursor: not-allowed;
-}
+} 
 
 /* Make the comment button look clickable */
 .post-action.comment-btn {
@@ -476,5 +480,5 @@
 }
 
 .post-action.comment-btn:hover {
-  color: #4CAF50;
+  color: #15bffc;
 }
