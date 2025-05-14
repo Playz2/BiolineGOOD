@@ -70,10 +70,9 @@
     }
 
     .user-icon img {
-      height: 36px;
-      width: 36px;
+      height: 33px;
+      width: 33px;
       border-radius: 50%;
-      border: 2px solid var(--primary-color);
       transition: transform 0.2s;
     }
     
@@ -81,7 +80,7 @@
       transform: scale(1.1);
     }
 
-    .signup-btn {
+    .auth-btn {
       padding: 0.5rem 1.2rem;
       background-color: var(--primary-color);
       border: none;
@@ -90,9 +89,11 @@
       cursor: pointer;
       font-weight: 500;
       box-shadow: var(--light-shadow);
+      text-decoration: none;
+      display: inline-block;
     }
 
-    .signup-btn:hover {
+    .auth-btn:hover {
       background-color: var(--primary-hover);
       transform: translateY(-2px);
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
@@ -160,55 +161,6 @@
       margin-bottom: 1.5rem;
       color: #444;
       line-height: 1.6;
-    }
-
-    .auth-form {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      margin-bottom: 2rem;
-      max-width: 400px;
-    }
-    
-    .auth-form input {
-      padding: 0.8rem;
-      border: 1px solid #ddd;
-      border-radius: var(--border-radius);
-      font-size: 1rem;
-    }
-    
-    .auth-form input:focus {
-      outline: none;
-      border-color: var(--primary-color);
-      box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
-    }
-
-    .login-btn {
-      background-color: var(--primary-color);
-      color: white;
-      padding: 0.75rem 1.75rem;
-      border: none;
-      border-radius: var(--border-radius);
-      font-size: 1.1rem;
-      margin-top: 0.5rem;
-      cursor: pointer;
-      font-weight: 500;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: var(--light-shadow);
-    }
-    
-    .login-btn::before {
-      content: "🔑";
-      font-size: 1.2rem;
-      margin-right: 0.5rem;
-    }
-
-    .login-btn:hover {
-      background-color: var(--primary-hover);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     }
 
     hr {
@@ -305,14 +257,25 @@
     /* Auth State Styles */
     .auth-container {
       text-align: center;
-      padding: 1rem;
+      padding: 2rem;
+      background-color: white;
+      border-radius: var(--border-radius);
+      box-shadow: var(--light-shadow);
+      margin-bottom: 2rem;
     }
     
     .auth-message {
       font-size: 1.2rem;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
       font-weight: 500;
       color: var(--primary-color);
+    }
+    
+    .auth-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1rem;
     }
     
     /* Status messages */
@@ -345,22 +308,6 @@
     .pulse {
       animation: pulse 1.5s infinite;
     }
-
-    .register-link {
-      margin-top: 1rem;
-      font-size: 0.9rem;
-      color: #555;
-    }
-    
-    .register-link a {
-      color: var(--primary-color);
-      text-decoration: none;
-      font-weight: 500;
-    }
-    
-    .register-link a:hover {
-      text-decoration: underline;
-    }
     
     /* Responsive adjustments */
     @media (max-width: 768px) {
@@ -390,14 +337,15 @@
       <div class="user-icon" id="user-icon" style="display: none;">
         <a href="dashboard.html"><img src="user.png" alt="User profile"></a>
       </div>
-      <a href="signup.html" id="signupLink">
-        <button class="signup-btn">Sign Up</button>
-      </a>
-      <div class="hamburger" id="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
+      <div id="auth-buttons">
+        <a href="signin.html" class="auth-btn">Sign In</a>
+        <a href="signup.html" class="auth-btn">Sign Up</a>
       </div>
+      <a href="meniu.html"><div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div></a>
     </div>
   </header>
 
@@ -409,14 +357,11 @@
     
     <!-- Authentication Status -->
     <div id="auth-status">
-      <p><strong>Conectați-vă</strong> pentru a începe să jucați această provocare de anatomie în timp real pentru doi jucători!</p>
-      <div class="auth-form">
-        <input type="email" id="emailInput" placeholder="Email" required>
-        <input type="password" id="passwordInput" placeholder="Password" required>
-        <div id="errorMessage" class="error-message"></div>
-        <button class="login-btn" id="loginBtn">Sign In</button>
-        <div class="register-link">
-          Don't have an account? <a href="signup.html">Sign up</a>
+      <div class="auth-container">
+        <p class="auth-message">Conectați-vă pentru a începe să jucați această provocare de anatomie în timp real pentru doi jucători!</p>
+        <div class="auth-buttons">
+          <a href="signin.html" class="auth-btn">Sign In</a>
+          <a href="signup.html" class="auth-btn">Sign Up</a>
         </div>
       </div>
     </div>
@@ -487,12 +432,13 @@
       <button id="leaveLobbyBtnJoined">Leave Lobby</button>
     </div>
   </main>
-
+<button onclick="initializeQuestions()" style="margin: 20px;">Initialize Questions</button> 
   <!-- Firebase Scripts -->
   <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
   <script src="firebase-config.js"></script>
+  <script src="intrebari.js"></script>
   <script>
     // DOM Elements
     const authStatus = document.getElementById('auth-status');
@@ -500,7 +446,6 @@
     const randomWaitingContainer = document.getElementById('randomWaitingContainer');
     const privateLobbyContainer = document.getElementById('privateLobbyContainer');
     const joinedLobbyContainer = document.getElementById('joinedLobbyContainer');
-    const loginBtn = document.getElementById('loginBtn');
     const findRandomBtn = document.getElementById('findRandomBtn');
     const createLobbyBtn = document.getElementById('createLobbyBtn');
     const joinLobbyBtn = document.getElementById('joinLobbyBtn');
@@ -515,7 +460,7 @@
     const guestPlayerName = document.getElementById('guestPlayerName');
     const hostPlayerNameJoined = document.getElementById('hostPlayerNameJoined');
     const userIconDiv = document.getElementById('user-icon');
-    const signupButtonDiv = document.querySelector('.signup-btn').parentElement;
+    const authButtonsDiv = document.getElementById('auth-buttons');
     const hamburger = document.getElementById('hamburger');
     
     // Variables
@@ -527,54 +472,38 @@
     
     // Initialize Firebase Auth
     document.addEventListener('DOMContentLoaded', () => {
+      // Check if the user is already authenticated
+      checkAuthState();
+      
       // Listen for changes to the user's authentication state
       firebase.auth().onAuthStateChanged((user) => {
-        if (user) {
-          // User is signed in
-          currentUser = user;
-          userIconDiv.style.display = 'block'; // Show the user icon
-          signupButtonDiv.style.display = 'none'; // Hide the Sign Up button
-          authStatus.style.display = 'none'; // Hide the login prompt
-          gameOptions.style.display = 'grid'; // Show game options
-        } else {
-          // User is not signed in
-          currentUser = null;
-          userIconDiv.style.display = 'none'; // Hide the user icon
-          signupButtonDiv.style.display = 'block'; // Show the Sign Up button
-          authStatus.style.display = 'block'; // Show login prompt
-          gameOptions.style.display = 'none'; // Hide game options
-        }
+        checkAuthState();
       });
     });
     
-    // User Authentication Logic
-    loginBtn.addEventListener('click', async () => {
-      const email = document.getElementById('emailInput').value;
-      const password = document.getElementById('passwordInput').value;
-      const errorMessage = document.getElementById('errorMessage');
+    // Check authentication state
+    function checkAuthState() {
+      const user = firebase.auth().currentUser;
+      console.log("Checking auth state:", user);
       
-      // Simple validation
-      if (!email || !password) {
-        errorMessage.textContent = "Please enter both email and password";
-        errorMessage.style.display = "block";
-        return;
+      if (user) {
+        // User is signed in
+        console.log("User is signed in:", user.email);
+        currentUser = user;
+        userIconDiv.style.display = 'block'; // Show the user icon
+        authButtonsDiv.style.display = 'none'; // Hide the auth buttons
+        authStatus.style.display = 'none'; // Hide the login prompt
+        gameOptions.style.display = 'grid'; // Show game options
+      } else {
+        // User is not signed in
+        console.log("User is signed out"); // Add this debug line
+        currentUser = null;
+        userIconDiv.style.display = 'none'; // Hide the user icon
+        authButtonsDiv.style.display = 'flex'; // Show the auth buttons
+        authStatus.style.display = 'block'; // Show login prompt
+        gameOptions.style.display = 'none'; // Hide game options
       }
-      
-      // Clear previous error messages
-      errorMessage.style.display = "none";
-      
-      try {
-        // Sign in with email and password
-        await firebase.auth().signInWithEmailAndPassword(email, password);
-        // Clear inputs after successful login
-        document.getElementById('emailInput').value = "";
-        document.getElementById('passwordInput').value = "";
-      } catch (error) {
-        console.error("Error signing in:", error);
-        errorMessage.textContent = error.message;
-        errorMessage.style.display = "block";
-      }
-    });
+    }
     
     // Generate a random 4-character lobby code
     function generateLobbyCode() {
@@ -602,7 +531,7 @@
           containerToShow === joinedLobbyContainer) {
         gameOptions.style.display = 'none';
       } else {
-        gameOptions.style.display = 'grid';
+        gameOptions.style.display = currentUser ? 'grid' : 'none';
       }
     }
     
@@ -610,6 +539,7 @@
     findRandomBtn.addEventListener('click', async () => {
       if (!currentUser) {
         alert("Please sign in first");
+        window.location.href = "signin.html";
         return;
       }
       
@@ -708,6 +638,7 @@
     createLobbyBtn.addEventListener('click', async () => {
       if (!currentUser) {
         alert("Please sign in first");
+        window.location.href = "signin.html";
         return;
       }
       
@@ -741,6 +672,7 @@
     joinLobbyBtn.addEventListener('click', async () => {
       if (!currentUser) {
         alert("Please sign in first");
+        window.location.href = "signin.html";
         return;
       }
       
@@ -896,7 +828,7 @@
         });
         
         // Redirect to game page
-        window.location.href = `game.html?gameId=${gameId}`;
+        window.location.href = `batalie.html?gameId=${gameId}`;
       } catch (error) {
         console.error("Error starting game:", error);
         alert("Error starting game: " + error.message);
@@ -924,7 +856,7 @@
           
           // Handle lobby status change to "playing"
           if (data.status === "playing") {
-            window.location.href = `game.html?gameId=${lobbyId}`;
+            window.location.href = `batalie.html?gameId=${lobbyId}`;
             return;
           }
           
@@ -941,22 +873,34 @@
               startGameBtn.classList.add('hidden');
             }
           }
-      });
+        }, (error) => {
+          console.error("Error listening to lobby:", error);
+        });
     }
     
-    // Get random questions from Firestore
-    async function getRandomQuestions(count = 10) {
+    // Get random questions function
+    async function getRandomQuestions(count) {
       try {
-        const snapshot = await firebase.firestore().collection("questions").get();
-        const allQuestions = snapshot.docs.map(doc => doc.data());
+        const questionsRef = firebase.firestore().collection("questions");
+        const snapshot = await questionsRef.get();
         
-        // Shuffle and pick 10
-        const shuffled = allQuestions.sort(() => 0.5 - Math.random());
-        return shuffled.slice(0, count);
+        let questions = [];
+        snapshot.forEach(doc => {
+          questions.push({ id: doc.id, ...doc.data() });
+        });
+        
+        // Shuffle and take required number of questions
+        for (let i = questions.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [questions[i], questions[j]] = [questions[j], questions[i]];
+        }
+        
+        return questions.slice(0, count);
       } catch (error) {
         console.error("Error getting questions:", error);
         throw error;
       }
     }
-    
-    //
+  </script>
+</body>
+</html>
