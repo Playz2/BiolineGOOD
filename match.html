@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Biology Quiz Battle</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css" />
+  <style>
+    :root {
+      --primary-color: #3498db;
+      --primary-hover: #2980b9;
+      --secondary-color: #0d9488;
+      --secondary-hover: #0b7c72;
+      --success-color: #22c55e;
+      --success-hover: #16a34a;
+      --background-color: #f1f9fe;
+      --card-background: #e6faff;
+      --light-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      --border-radius: 10px;
+      --header-height: 70px;
+    }
+    
+    * {
+      box-sizing: border-box;
+      transition: all 0.2s ease;
+    }
+
+    body {
+      margin: 0;
+      padding-bottom: 100px;
+      background-color: var(--background-color);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #333;
+      min-height: 100vh;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: white;
+      padding: 1rem 2rem;
+      box-shadow: var(--light-shadow);
+      height: var(--header-height);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      font-size: 1.6rem;
+      font-weight: bold;
+      color: var(--primary-color);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+    }
+    
+    .logo::before {
+      content: "🧬";
+      margin-right: 0.5rem;
+      font-size: 1.8rem;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .user-icon img {
+      height: 36px;
+      width: 36px;
+      border-radius: 50%;
+      border: 2px solid var(--primary-color);
+      transition: transform 0.2s;
+    }
+    
+    .user-icon img:hover {
+      transform: scale(1.1);
+    }
+
+    .signup-btn {
+      padding: 0.5rem 1.2rem;
+      background-color: var(--primary-color);
+      border: none;
+      border-radius: var(--border-radius);
+      color: white;
+      cursor: pointer;
+      font-weight: 500;
+      box-shadow: var(--light-shadow);
+    }
+
+    .signup-btn:hover {
+      background-color: var(--primary-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    .hamburger {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      cursor: pointer;
+      padding: 8px;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+    
+    .hamburger:hover {
+      background-color: #f0f0f0;
+    }
+
+    .hamburger span {
+      width: 22px;
+      height: 2px;
+      background-color: #333;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+    
+    .hamburger:hover span:nth-child(1) {
+      transform: translateY(2px);
+    }
+    
+    .hamburger:hover span:nth-child(3) {
+      transform: translateY(-2px);
+    }
+
+    .main-card {
+      max-width: 960px;
+      margin: 4rem auto;
+      background-color: var(--card-background);
+      border-radius: 20px;
+      padding: 2.5rem;
+      box-shadow: var(--card-shadow);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .main-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 8px;
+      background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    }
+
+    .main-card h1 {
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+      color: #222;
+      font-weight: 600;
+    }
+
+    .main-card p {
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+      color: #444;
+      line-height: 1.6;
+    }
+
+    .auth-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      max-width: 400px;
+    }
+    
+    .auth-form input {
+      padding: 0.8rem;
+      border: 1px solid #ddd;
+      border-radius: var(--border-radius);
+      font-size: 1rem;
+    }
+    
+    .auth-form input:focus {
+      outline: none;
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+    }
+
+    .login-btn {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 0.75rem 1.75rem;
+      border: none;
+      border-radius: var(--border-radius);
+      font-size: 1.1rem;
+      margin-top: 0.5rem;
+      cursor: pointer;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--light-shadow);
+    }
+    
+    .login-btn::before {
+      content: "🔑";
+      font-size: 1.2rem;
+      margin-right: 0.5rem;
+    }
+
+    .login-btn:hover {
+      background-color: var(--primary-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    hr {
+      border: 0;
+      height: 1px;
+      background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
+      margin: 2rem 0;
+    }
+
+    .grid-options {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.8rem;
+    }
+
+    .option {
+      background: white;
+      border-radius: var(--border-radius);
+      padding: 1.5rem;
+      box-shadow: var(--light-shadow);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      transition: transform 0.3s, box-shadow 0.3s;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    
+    .option:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .option h3 {
+      color: #222;
+      margin-bottom: 0.8rem;
+      position: relative;
+      padding-bottom: 0.8rem;
+    }
+    
+    .option h3::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background-color: var(--primary-color);
+      border-radius: 3px;
+    }
+
+    .option p {
+      color: #555;
+      flex-grow: 1;
+      font-size: 0.95rem;
+    }
+
+    .option button {
+      margin-top: 1rem;
+      background-color: var(--secondary-color);
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border: none;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      font-weight: 500;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+    
+    .option button:hover {
+      background-color: var(--secondary-hover);
+      transform: translateY(-2px);
+    }
+
+    .option input {
+      margin-top: 0.8rem;
+      padding: 0.6rem;
+      border: 1px solid #ddd;
+      border-radius: var(--border-radius);
+      width: 100%;
+    }
+    
+    .option input:focus {
+      border-color: var(--primary-color);
+      outline: none;
+      box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+    }
+    
+    .hidden {
+      display: none;
+    }
+    
+    /* Auth State Styles */
+    .auth-container {
+      text-align: center;
+      padding: 1rem;
+    }
+    
+    .auth-message {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      font-weight: 500;
+      color: var(--primary-color);
+    }
+    
+    /* Status messages */
+    .status-message {
+      background-color: #e8f4fd;
+      padding: 0.8rem;
+      border-radius: var(--border-radius);
+      margin-bottom: 1rem;
+      border-left: 4px solid var(--primary-color);
+    }
+    
+    /* Error message */
+    .error-message {
+      background-color: #fde8e8;
+      color: #b91c1c;
+      padding: 0.8rem;
+      border-radius: var(--border-radius);
+      margin: 0.5rem 0;
+      border-left: 4px solid #dc2626;
+      display: none;
+    }
+    
+    /* Animation for loading states */
+    @keyframes pulse {
+      0% { opacity: 0.6; }
+      50% { opacity: 1; }
+      100% { opacity: 0.6; }
+    }
+    
+    .pulse {
+      animation: pulse 1.5s infinite;
+    }
+
+    .register-link {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: #555;
+    }
+    
+    .register-link a {
+      color: var(--primary-color);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    
+    .register-link a:hover {
+      text-decoration: underline;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .header {
+        padding: 1rem;
+      }
+      
+      .main-card {
+        margin: 2rem 1rem;
+        padding: 1.5rem;
+      }
+      
+      .grid-options {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <a href="index.html" class="logo">
+      Bioline
+    </a>
+    <div class="header-right">
+      <div class="user-icon" id="user-icon" style="display: none;">
+        <a href="dashboard.html"><img src="user.png" alt="User profile"></a>
+      </div>
+      <a href="signup.html" id="signupLink">
+        <button class="signup-btn">Sign Up</button>
+      </a>
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-card">
+    <h1>Bun venit la BioBattle</h1>
+    <p>Participă cu un prieten sau găsește un jucător la întâmplare!</p>
+    <hr />
+    
+    <!-- Authentication Status -->
+    <div id="auth-status">
+      <p><strong>Conectați-vă</strong> pentru a începe să jucați această provocare de anatomie în timp real pentru doi jucători!</p>
+      <div class="auth-form">
+        <input type="email" id="emailInput" placeholder="Email" required>
+        <input type="password" id="passwordInput" placeholder="Password" required>
+        <div id="errorMessage" class="error-message"></div>
+        <button class="login-btn" id="loginBtn">Sign In</button>
+        <div class="register-link">
+          Don't have an account? <a href="signup.html">Sign up</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Game Options (initially hidden until logged in) -->
+    <div class="grid-options" id="game-options" style="display: none;">
+      <div class="option">
+        <h3>Find Random Match</h3>
+        <p>Quickly jump into a quiz battle with a random player and test your biology knowledge against others.</p>
+        <button id="findRandomBtn">Find Match</button>
+      </div>
+
+      <div class="option">
+        <h3>Create Private Lobby</h3>
+        <p>Create a private game and invite a friend to join with your unique lobby code.</p>
+        <button id="createLobbyBtn">Create Lobby</button>
+      </div>
+
+      <div class="option">
+        <h3>Join Lobby</h3>
+        <p>Have a code? Join a friend's match here and compete in a biological challenge.</p>
+        <input type="text" id="lobbyCodeInput" placeholder="Enter lobby code" />
+        <button id="joinLobbyBtn">Join Lobby</button>
+      </div>
+    </div>
+    
+    <!-- Waiting for Random Match (initially hidden) -->
+    <div class="waiting-container hidden" id="randomWaitingContainer">
+      <div class="status-message pulse">
+        <p>Searching for an opponent... Please wait.</p>
+      </div>
+      <button id="cancelRandomMatchBtn">Cancel</button>
+    </div>
+    
+    <!-- Private Lobby (Host) (initially hidden) -->
+    <div class="lobby-container hidden" id="privateLobbyContainer">
+      <h2>Private Lobby</h2>
+      <p>Share this code with a friend to join your game:</p>
+      <div class="lobby-code">
+        <span id="lobbyCodeDisplay">XXXX</span>
+        <button id="copyCodeBtn">Copy Code</button>
+      </div>
+      <div class="player-list">
+        <div class="player-item">
+          <span>You (Host)</span>
+        </div>
+        <div class="player-item hidden" id="guestPlayerItem">
+          <span id="guestPlayerName">Guest</span>
+        </div>
+      </div>
+      <p id="waitingMessage">Waiting for another player to join...</p>
+      <button id="startGameBtn" class="hidden">Start Game</button>
+      <button id="leaveLobbyBtn">Leave Lobby</button>
+    </div>
+    
+    <!-- Joined Lobby (Guest) (initially hidden) -->
+    <div class="lobby-container hidden" id="joinedLobbyContainer">
+      <h2>Joined Lobby</h2>
+      <div class="player-list">
+        <div class="player-item">
+          <span id="hostPlayerNameJoined">Host</span> (Host)
+        </div>
+        <div class="player-item">
+          <span>You</span>
+        </div>
+      </div>
+      <p>Waiting for host to start the game...</p>
+      <button id="leaveLobbyBtnJoined">Leave Lobby</button>
+    </div>
+  </main>
+
+  <!-- Firebase Scripts -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+  <script src="firebase-config.js"></script>
+  <script>
+    // DOM Elements
+    const authStatus = document.getElementById('auth-status');
+    const gameOptions = document.getElementById('game-options');
+    const randomWaitingContainer = document.getElementById('randomWaitingContainer');
+    const privateLobbyContainer = document.getElementById('privateLobbyContainer');
+    const joinedLobbyContainer = document.getElementById('joinedLobbyContainer');
+    const loginBtn = document.getElementById('loginBtn');
+    const findRandomBtn = document.getElementById('findRandomBtn');
+    const createLobbyBtn = document.getElementById('createLobbyBtn');
+    const joinLobbyBtn = document.getElementById('joinLobbyBtn');
+    const lobbyCodeInput = document.getElementById('lobbyCodeInput');
+    const lobbyCodeDisplay = document.getElementById('lobbyCodeDisplay');
+    const copyCodeBtn = document.getElementById('copyCodeBtn');
+    const startGameBtn = document.getElementById('startGameBtn');
+    const leaveLobbyBtn = document.getElementById('leaveLobbyBtn');
+    const leaveLobbyBtnJoined = document.getElementById('leaveLobbyBtnJoined');
+    const cancelRandomMatchBtn = document.getElementById('cancelRandomMatchBtn');
+    const guestPlayerItem = document.getElementById('guestPlayerItem');
+    const guestPlayerName = document.getElementById('guestPlayerName');
+    const hostPlayerNameJoined = document.getElementById('hostPlayerNameJoined');
+    const userIconDiv = document.getElementById('user-icon');
+    const signupButtonDiv = document.querySelector('.signup-btn').parentElement;
+    const hamburger = document.getElementById('hamburger');
+    
+    // Variables
+    let currentUser = null;
+    let currentLobbyId = null;
+    let isHost = false;
+    let randomMatchUnsubscribe = null;
+    let lobbyUnsubscribe = null;
+    
+    // Initialize Firebase Auth
+    document.addEventListener('DOMContentLoaded', () => {
+      // Listen for changes to the user's authentication state
+      firebase.auth().onAuthStateChanged((user) => {
+        if (user) {
+          // User is signed in
+          currentUser = user;
+          userIconDiv.style.display = 'block'; // Show the user icon
+          signupButtonDiv.style.display = 'none'; // Hide the Sign Up button
+          authStatus.style.display = 'none'; // Hide the login prompt
+          gameOptions.style.display = 'grid'; // Show game options
+        } else {
+          // User is not signed in
+          currentUser = null;
+          userIconDiv.style.display = 'none'; // Hide the user icon
+          signupButtonDiv.style.display = 'block'; // Show the Sign Up button
+          authStatus.style.display = 'block'; // Show login prompt
+          gameOptions.style.display = 'none'; // Hide game options
+        }
+      });
+    });
+    
+    // User Authentication Logic
+    loginBtn.addEventListener('click', async () => {
+      const email = document.getElementById('emailInput').value;
+      const password = document.getElementById('passwordInput').value;
+      const errorMessage = document.getElementById('errorMessage');
+      
+      // Simple validation
+      if (!email || !password) {
+        errorMessage.textContent = "Please enter both email and password";
+        errorMessage.style.display = "block";
+        return;
+      }
+      
+      // Clear previous error messages
+      errorMessage.style.display = "none";
+      
+      try {
+        // Sign in with email and password
+        await firebase.auth().signInWithEmailAndPassword(email, password);
+        // Clear inputs after successful login
+        document.getElementById('emailInput').value = "";
+        document.getElementById('passwordInput').value = "";
+      } catch (error) {
+        console.error("Error signing in:", error);
+        errorMessage.textContent = error.message;
+        errorMessage.style.display = "block";
+      }
+    });
+    
+    // Generate a random 4-character lobby code
+    function generateLobbyCode() {
+      const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+      let result = '';
+      for (let i = 0; i < 4; i++) {
+        result += characters.charAt(Math.floor(Math.random() * characters.length));
+      }
+      return result;
+    }
+    
+    // Show only one container, hide others
+    function showOnlyContainer(containerToShow) {
+      [randomWaitingContainer, privateLobbyContainer, joinedLobbyContainer].forEach(container => {
+        if (container === containerToShow) {
+          container.classList.remove('hidden');
+        } else {
+          container.classList.add('hidden');
+        }
+      });
+      
+      // Handle special display for game options
+      if (containerToShow === randomWaitingContainer || 
+          containerToShow === privateLobbyContainer || 
+          containerToShow === joinedLobbyContainer) {
+        gameOptions.style.display = 'none';
+      } else {
+        gameOptions.style.display = 'grid';
+      }
+    }
+    
+    // Find Random Match
+    findRandomBtn.addEventListener('click', async () => {
+      if (!currentUser) {
+        alert("Please sign in first");
+        return;
+      }
+      
+      showOnlyContainer(randomWaitingContainer);
+      
+      try {
+        // Check for available lobbies first
+        const lobbiesRef = firebase.firestore().collection("lobbies");
+        const query = lobbiesRef.where("isPublic", "==", true).where("players", "==", 1).limit(1);
+        const querySnapshot = await query.get();
+        
+        if (!querySnapshot.empty) {
+          // Join an existing public lobby
+          const lobbyDoc = querySnapshot.docs[0];
+          const lobbyId = lobbyDoc.id;
+          const lobbyData = lobbyDoc.data();
+          
+          // Update the lobby with the second player
+          await firebase.firestore().collection("lobbies").doc(lobbyId).update({
+            players: 2,
+            guest: {
+              uid: currentUser.uid,
+              displayName: currentUser.displayName || "Guest"
+            }
+          });
+          
+          currentLobbyId = lobbyId;
+          isHost = false;
+          
+          // Listen for lobby changes
+          setupLobbyListener(lobbyId);
+        } else {
+          // Create a new public lobby
+          const lobbyId = generateLobbyCode();
+          await firebase.firestore().collection("lobbies").doc(lobbyId).set({
+            host: {
+              uid: currentUser.uid,
+              displayName: currentUser.displayName || "Host"
+            },
+            isPublic: true,
+            players: 1,
+            createdAt: new Date().toISOString()
+          });
+          
+          currentLobbyId = lobbyId;
+          isHost = true;
+          
+          // Listen for lobby changes
+          setupLobbyListener(lobbyId);
+        }
+      } catch (error) {
+        console.error("Error in random matchmaking:", error);
+        alert("Error finding match: " + error.message);
+        showOnlyContainer(null); // Show game options
+      }
+    });
+    
+    // Cancel Random Match
+    cancelRandomMatchBtn.addEventListener('click', async () => {
+      if (currentLobbyId && isHost) {
+        // If host, delete the lobby
+        try {
+          await firebase.firestore().collection("lobbies").doc(currentLobbyId).delete();
+        } catch (error) {
+          console.error("Error deleting lobby:", error);
+        }
+      } else if (currentLobbyId) {
+        // If guest, leave the lobby
+        try {
+          const lobbyRef = firebase.firestore().collection("lobbies").doc(currentLobbyId);
+          const lobbySnap = await lobbyRef.get();
+          
+          if (lobbySnap.exists) {
+            await lobbyRef.update({
+              players: 1,
+              guest: null
+            });
+          }
+        } catch (error) {
+          console.error("Error leaving lobby:", error);
+        }
+      }
+      
+      // Clean up listeners
+      if (randomMatchUnsubscribe) {
+        randomMatchUnsubscribe();
+        randomMatchUnsubscribe = null;
+      }
+      
+      currentLobbyId = null;
+      isHost = false;
+      showOnlyContainer(null); // Show game options
+    });
+    
+    // Create Private Lobby
+    createLobbyBtn.addEventListener('click', async () => {
+      if (!currentUser) {
+        alert("Please sign in first");
+        return;
+      }
+      
+      try {
+        const lobbyId = generateLobbyCode();
+        await firebase.firestore().collection("lobbies").doc(lobbyId).set({
+          host: {
+            uid: currentUser.uid,
+            displayName: currentUser.displayName || "Host"
+          },
+          isPublic: false,
+          players: 1,
+          createdAt: new Date().toISOString()
+        });
+        
+        currentLobbyId = lobbyId;
+        isHost = true;
+        lobbyCodeDisplay.textContent = lobbyId;
+        
+        showOnlyContainer(privateLobbyContainer);
+        
+        // Listen for lobby changes
+        setupLobbyListener(lobbyId);
+      } catch (error) {
+        console.error("Error creating lobby:", error);
+        alert("Error creating lobby: " + error.message);
+      }
+    });
+    
+    // Join Private Lobby
+    joinLobbyBtn.addEventListener('click', async () => {
+      if (!currentUser) {
+        alert("Please sign in first");
+        return;
+      }
+      
+      const lobbyId = lobbyCodeInput.value.trim().toUpperCase();
+      if (!lobbyId) {
+        alert("Please enter a lobby code");
+        return;
+      }
+      
+      try {
+        const lobbyRef = firebase.firestore().collection("lobbies").doc(lobbyId);
+        const lobbySnap = await lobbyRef.get();
+        
+        if (!lobbySnap.exists) {
+          alert("Lobby not found");
+          return;
+        }
+        
+        const lobbyData = lobbySnap.data();
+        if (lobbyData.players >= 2) {
+          alert("Lobby is full");
+          return;
+        }
+        
+        // Update the lobby with the second player
+        await lobbyRef.update({
+          players: 2,
+          guest: {
+            uid: currentUser.uid,
+            displayName: currentUser.displayName || "Guest"
+          }
+        });
+        
+        currentLobbyId = lobbyId;
+        isHost = false;
+        
+        // Set host name in joined view
+        hostPlayerNameJoined.textContent = lobbyData.host.displayName;
+        
+        showOnlyContainer(joinedLobbyContainer);
+        
+        // Listen for lobby changes
+        setupLobbyListener(lobbyId);
+      } catch (error) {
+        console.error("Error joining lobby:", error);
+        alert("Error joining lobby: " + error.message);
+      }
+    });
+    
+    // Leave Lobby (Host)
+    leaveLobbyBtn.addEventListener('click', async () => {
+      if (!currentLobbyId || !isHost) return;
+      
+      try {
+        await firebase.firestore().collection("lobbies").doc(currentLobbyId).delete();
+        
+        if (lobbyUnsubscribe) {
+          lobbyUnsubscribe();
+          lobbyUnsubscribe = null;
+        }
+        
+        currentLobbyId = null;
+        isHost = false;
+        showOnlyContainer(null); // Show game options
+      } catch (error) {
+        console.error("Error leaving lobby:", error);
+        alert("Error leaving lobby: " + error.message);
+      }
+    });
+    
+    // Leave Lobby (Guest)
+    leaveLobbyBtnJoined.addEventListener('click', async () => {
+      if (!currentLobbyId || isHost) return;
+      
+      try {
+        const lobbyRef = firebase.firestore().collection("lobbies").doc(currentLobbyId);
+        const lobbySnap = await lobbyRef.get();
+        
+        if (lobbySnap.exists) {
+          await lobbyRef.update({
+            players: 1,
+            guest: null
+          });
+        }
+        
+        if (lobbyUnsubscribe) {
+          lobbyUnsubscribe();
+          lobbyUnsubscribe = null;
+        }
+        
+        currentLobbyId = null;
+        isHost = false;
+        showOnlyContainer(null); // Show game options
+      } catch (error) {
+        console.error("Error leaving lobby:", error);
+        alert("Error leaving lobby: " + error.message);
+      }
+    });
+    
+    // Copy Lobby Code
+    copyCodeBtn.addEventListener('click', () => {
+      const lobbyCode = lobbyCodeDisplay.textContent;
+      navigator.clipboard.writeText(lobbyCode).then(() => {
+        copyCodeBtn.textContent = "Copied!";
+        setTimeout(() => {
+          copyCodeBtn.textContent = "Copy Code";
+        }, 2000);
+      });
+    });
+    
+    // Start Game
+    startGameBtn.addEventListener('click', async () => {
+      if (!currentLobbyId || !isHost) return;
+      
+      try {
+        // Get 10 random questions from Firestore
+        const questions = await getRandomQuestions(10);
+        
+        // Create a new game document
+        const gameId = currentLobbyId;
+        const lobbyRef = firebase.firestore().collection("lobbies").doc(currentLobbyId);
+        const lobbySnap = await lobbyRef.get();
+        const lobbyData = lobbySnap.data();
+        
+        if (!lobbyData || !lobbyData.guest) {
+          alert("Cannot start game without a second player");
+          return;
+        }
+        
+        await firebase.firestore().collection("games").doc(gameId).set({
+          questions: questions,
+          players: {
+            [lobbyData.host.uid]: {
+              displayName: lobbyData.host.displayName,
+              answers: [],
+              score: 0,
+              completed: false
+            },
+            [lobbyData.guest.uid]: {
+              displayName: lobbyData.guest.displayName,
+              answers: [],
+              score: 0,
+              completed: false
+            }
+          },
+          startedAt: new Date().toISOString(),
+          status: "active"
+        });
+        
+        // Update the lobby status
+        await lobbyRef.update({
+          status: "playing"
+        });
+        
+        // Redirect to game page
+        window.location.href = `game.html?gameId=${gameId}`;
+      } catch (error) {
+        console.error("Error starting game:", error);
+        alert("Error starting game: " + error.message);
+      }
+    });
+    
+    // Setup lobby listener
+    function setupLobbyListener(lobbyId) {
+      if (lobbyUnsubscribe) {
+        lobbyUnsubscribe();
+      }
+      
+      lobbyUnsubscribe = firebase.firestore().collection("lobbies").doc(lobbyId)
+        .onSnapshot((doc) => {
+          if (!doc.exists) {
+            // Lobby was deleted
+            alert("The lobby was closed");
+            showOnlyContainer(null); // Show game options
+            currentLobbyId = null;
+            isHost = false;
+            return;
+          }
+          
+          const data = doc.data();
+          
+          // Handle lobby status change to "playing"
+          if (data.status === "playing") {
+            window.location.href = `game.html?gameId=${lobbyId}`;
+            return;
+          }
+          
+          if (isHost) {
+            // Update UI for host
+            if (data.players === 2 && data.guest) {
+              guestPlayerItem.classList.remove('hidden');
+              guestPlayerName.textContent = data.guest.displayName;
+              document.getElementById('waitingMessage').classList.add('hidden');
+              startGameBtn.classList.remove('hidden');
+            } else {
+              guestPlayerItem.classList.add('hidden');
+              document.getElementById('waitingMessage').classList.remove('hidden');
+              startGameBtn.classList.add('hidden');
+            }
+          }
+      });
+    }
+    
+    // Get random questions from Firestore
+    async function getRandomQuestions(count = 10) {
+      try {
+        const snapshot = await firebase.firestore().collection("questions").get();
+        const allQuestions = snapshot.docs.map(doc => doc.data());
+        
+        // Shuffle and pick 10
+        const shuffled = allQuestions.sort(() => 0.5 - Math.random());
+        return shuffled.slice(0, count);
+      } catch (error) {
+        console.error("Error getting questions:", error);
+        throw error;
+      }
+    }
+    
+    //

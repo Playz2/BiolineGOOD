@@ -242,3 +242,28 @@
 .incorrect {
     background-color: rgba(255, 0, 0, 0.5);
 }
+.termina{
+    cursor: pointer;
+    display: block;
+    padding: 10px 20px;
+    width: fit-content;
+    margin: 30px auto 0;
+    background-color: #249dff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+.termina:hover {
+    background-color: #005f73;
+}
+.total{
+    position: relative;
+    bottom: 70px;
+    left: 650px;
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(44, 44, 44);
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 10px 25px;
+}
