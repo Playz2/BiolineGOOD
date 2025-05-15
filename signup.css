@@ -319,3 +319,114 @@ body {
   from { opacity: 0; transform: translateY(-10px); }
   to { opacity: 1; transform: translateY(0); }
 }
+/* Tablet Styles (for screens between 768px and 1024px) */
+@media screen and (max-width: 1024px) {
+  .container {
+    width: 60%;
+    left: 20%;
+    top: 10%;
+  }
+
+  .username, .password, .email {
+    font-size: 1.3rem;
+    padding: 30px;
+  }
+
+  .head h1 {
+    font-size: 2.5rem;
+  }
+
+  .login {
+    width: 70%;
+    margin-left: 15%;
+    font-size: 1.1rem;
+  }
+
+  .cerc1, .cerc2, .cerc3 {
+    display: none;
+  }
+}
+
+/* Mobile Phone Styles (for screens less than 768px) */
+@media screen and (max-width: 767px) {
+  .container {
+    width: 90%;
+    left: 5%;
+    top: 8%;
+    height: 80vh;
+  }
+
+  .user {
+    right: 70%;
+    top: 5%;
+  }
+
+  .head h1 {
+    font-size: 2rem;
+    margin-top: 10px;
+  }
+
+  .username, .password, .email {
+    width: 90%;
+    font-size: 1.1rem;
+    padding: 25px;
+    margin: 20px auto;
+  }
+
+  .login {
+    width: 80%;
+    margin-left: 10%;
+    height: 6vh;
+    font-size: 1rem;
+  }
+
+  .messages {
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .message1 {
+    margin-top: 20px;
+    margin-left: 0;
+  }
+
+  .social-login {
+    margin-top: 10px;
+  }
+
+  .container h2 {
+    left: 15%;
+    width: 70%;
+    font-size: 0.9rem;
+  }
+
+  .linie {
+    width: 85%;
+    right: 30px;
+  }
+}
+
+/* Small Phone Styles (for screens less than 400px) */
+@media screen and (max-width: 400px) {
+  .container {
+    height: 85vh;
+  }
+
+  .head h1 {
+    font-size: 1.6rem;
+  }
+  
+  .username, .password, .email {
+    padding: 20px;
+    height: 4vh;
+  }
+  
+  .login {
+    height: 5vh;
+  }
+  
+  .social-login button {
+    width: 40px;
+    height: 40px;
+  }
+}

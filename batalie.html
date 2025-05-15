@@ -4,618 +4,81 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Biology Quiz Battle - Game</title>
-    <style>
-        :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #3498db;
-            --accent-color: #e74c3c;
-            --light-bg: #ecf0f1;
-            --dark-text: #2c3e50;
-            --light-text: #ffffff;
-            --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            --correct-color: #27ae60;
-            --incorrect-color: #e74c3c;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background-color: var(--light-bg);
-            color: var(--dark-text);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 20px;
-        }
-        
-        header {
-            text-align: center;
-            margin-bottom: 30px;
-            width: 100%;
-        }
-        
-        h1 {
-            color: var(--primary-color);
-            margin-bottom: 10px;
-            font-size: 2.2rem;
-        }
-        
-        .subtitle {
-            color: var(--secondary-color);
-            font-size: 1.2rem;
-        }
-        
-        .container {
-            max-width: 800px;
-            width: 100%;
-        }
-        
-        .player-info {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-        }
-        
-        .player-card {
-            background-color: white;
-            border-radius: 8px;
-            padding: 15px;
-            box-shadow: var(--card-shadow);
-            flex: 1;
-            min-width: 200px;
-            margin: 0 10px 10px;
-            text-align: center;
-        }
-        
-        .player-card h3 {
-            color: var(--primary-color);
-            margin-bottom: 5px;
-        }
-        
-        .player-label {
-            font-size: 0.9rem;
-            color: #7f8c8d;
-        }
-        
-        .progress-container {
-            background-color: white;
-            border-radius: 10px;
-            padding: 15px;
-            box-shadow: var(--card-shadow);
-            margin-bottom: 20px;
-            width: 100%;
-        }
-        
-        .progress-bar-container {
-            height: 10px;
-            background-color: #ddd;
-            border-radius: 5px;
-            margin: 10px 0;
-            overflow: hidden;
-        }
-        
-        .progress-bar {
-            height: 100%;
-            background-color: var(--secondary-color);
-            width: 10%; /* Default, will be updated with JS */
-            transition: width 0.5s ease;
-        }
-        
-        .question-container {
-            background-color: white;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: var(--card-shadow);
-            margin-bottom: 20px;
-            width: 100%;
-        }
-        
-        .question-text {
-            font-size: 1.3rem;
-            margin-bottom: 20px;
-            color: var(--primary-color);
-        }
-        
-        .options-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 15px;
-        }
-        
-        @media (min-width: 600px) {
-            .options-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        
-        .option-btn {
-            background-color: white;
-            border: 2px solid var(--secondary-color);
-            color: var(--dark-text);
-            padding: 15px;
-            border-radius: 8px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            text-align: left;
-        }
-        
-        .option-btn:hover {
-            background-color: var(--light-bg);
-        }
-        
-        .option-btn.selected {
-            background-color: var(--secondary-color);
-            color: white;
-        }
-        
-        .option-btn.correct {
-            background-color: var(--correct-color);
-            color: white;
-            border-color: var(--correct-color);
-        }
-        
-        .option-btn.incorrect {
-            background-color: var(--incorrect-color);
-            color: white;
-            border-color: var(--incorrect-color);
-        }
-        
-        .option-btn.disabled {
-            opacity: 0.7;
-            cursor: not-allowed;
-        }
-        
-        .next-btn {
-            background-color: var(--secondary-color);
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 5px;
-            font-size: 1.1rem;
-            cursor: pointer;
-            margin-top: 20px;
-            transition: background-color 0.2s ease;
-        }
-        
-        .next-btn:hover {
-            background-color: #2980b9;
-        }
-        
-        .hidden {
-            display: none !important;
-        }
-        
-        .results-container {
-            background-color: white;
-            border-radius: 10px;
-            padding: 25px;
-            box-shadow: var(--card-shadow);
-            width: 100%;
-            text-align: center;
-        }
-        
-        .winner-announcement {
-            font-size: 1.8rem;
-            color: var(--primary-color);
-            margin-bottom: 15px;
-        }
-        
-        .score-display {
-            font-size: 1.3rem;
-            margin: 10px 0;
-        }
-        
-        .results-action {
-            margin-top: 30px;
-        }
-        
-        .loading-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 300px;
-        }
-        
-        .loader {
-            border: 5px solid #f3f3f3;
-            border-top: 5px solid var(--secondary-color);
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            animation: spin 1s linear infinite;
-            margin-bottom: 20px;
-        }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
-        .opponent-status {
-            background-color: rgba(0, 0, 0, 0.05);
-            padding: 10px;
-            border-radius: 5px;
-            font-size: 0.9rem;
-            margin-top: 10px;
-        }
-    </style>
+    <link rel="stylesheet" href="bataliestyle.css">
 </head>
 <body>
     <header>
         <h1>🧬 Biology Quiz Battle</h1>
-        <p class="subtitle">Answer the questions correctly and quickly!</p>
+        <p class="subtitle">Testează-ți cunoștințele împotriva unui adversar!</p>
     </header>
     
     <div class="container">
         <!-- Loading Container -->
         <div id="loadingContainer" class="loading-container">
             <div class="loader"></div>
-            <p>Loading game data...</p>
+            <p>Se încarcă datele de luptă cu test...</p>
         </div>
         
-        <!-- Game UI -->
         <div id="gameContainer" class="hidden">
             <!-- Player Information -->
             <div class="player-info">
-                <div class="player-card">
+                <div class="player-card active" id="player1Card">
                     <h3 id="player1Name">Player 1</h3>
                     <div class="player-label">You</div>
                     <div id="player1Status" class="opponent-status">Answering...</div>
                 </div>
                 
-                <div class="player-card">
+                <div class="player-card" id="player2Card">
                     <h3 id="player2Name">Player 2</h3>
                     <div class="player-label">Opponent</div>
                     <div id="player2Status" class="opponent-status">Answering...</div>
                 </div>
             </div>
             
-            <!-- Progress Bar -->
             <div class="progress-container">
-                <div id="questionProgress">Question <span id="currentQuestionNum">1</span> of <span id="totalQuestions">10</span></div>
+                <div id="questionProgress">întrebare <span id="currentQuestionNum">1</span> of <span id="totalQuestions">10</span></div>
                 <div class="progress-bar-container">
                     <div id="progressBar" class="progress-bar"></div>
                 </div>
+                <div class="timer-container">
+                    <div class="timer" id="timer">Timp: 20s</div>
+                </div>
             </div>
             
-            <!-- Question Container -->
+
             <div class="question-container">
-                <div id="questionText" class="question-text">Loading question...</div>
+                <div class="category-tag" id="categoryTag">Categorie</div>
+                <div id="questionText" class="question-text">Se încarcă întrebarea...</div>
+                
+                <div id="feedbackMessage" class="feedback-message hidden"></div>
                 
                 <div class="options-grid" id="optionsContainer">
                     <!-- Options will be generated dynamically -->
                 </div>
                 
-                <button id="nextBtn" class="next-btn hidden">Next Question</button>
+                <button id="nextBtn" class="next-btn hidden">Următoarea întrebare</button>
             </div>
         </div>
         
-        <!-- Results Container -->
+
         <div id="resultsContainer" class="results-container hidden">
-            <h2 class="winner-announcement" id="winnerAnnouncement">Congratulations! You won!</h2>
+            <h2 class="winner-announcement" id="winnerAnnouncement">Felicitări! Ai câștigat!</h2>
             
             <div class="score-display">
-                <div id="player1Result">You: <span id="player1Score">0</span>/10 correct</div>
-                <div id="player2Result">Opponent: <span id="player2Score">0</span>/10 correct</div>
+                <div id="player1Result" class="player-score">You: <span id="player1Score">0</span>/10 correct</div>
+                <div id="player2Result" class="player-score">Opponent: <span id="player2Score">0</span>/10 correct</div>
             </div>
             
             <div class="results-action">
-                <button id="returnLobbyBtn" class="next-btn">Return to Lobby</button>
+                <button id="returnLobbyBtn" class="next-btn">Întoarceți-vă în hol</button>
             </div>
         </div>
     </div>
 
-    <!-- Firebase SDK - Use firebase-compat libraries consistently -->
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
     <script src="firebase-config.js"></script>
-    
-    <script>
-        const loadingContainer = document.getElementById('loadingContainer');
-        const gameContainer = document.getElementById('gameContainer');
-        const resultsContainer = document.getElementById('resultsContainer');
-        const player1Name = document.getElementById('player1Name');
-        const player2Name = document.getElementById('player2Name');
-        const player1Status = document.getElementById('player1Status');
-        const player2Status = document.getElementById('player2Status');
-        const currentQuestionNum = document.getElementById('currentQuestionNum');
-        const totalQuestions = document.getElementById('totalQuestions');
-        const progressBar = document.getElementById('progressBar');
-        const questionText = document.getElementById('questionText');
-        const optionsContainer = document.getElementById('optionsContainer');
-        const nextBtn = document.getElementById('nextBtn');
-        const winnerAnnouncement = document.getElementById('winnerAnnouncement');
-        const player1Score = document.getElementById('player1Score');
-        const player2Score = document.getElementById('player2Score');
-        const returnLobbyBtn = document.getElementById('returnLobbyBtn');
-        
-        // Variables
-        let currentUser = null;
-        let gameId = null;
-        let gameData = null;
-        let currentQuestionIndex = 0;
-        let questions = [];
-        let userAnswers = [];
-        let players = {};
-        let opponentId = null;
-        let gameUnsubscribe = null;
-        
-        // Get game ID from URL
-        const urlParams = new URLSearchParams(window.location.search);
-        gameId = urlParams.get('gameId');
-        
-        if (!gameId) {
-            alert("No game ID provided. Redirecting to lobby.");
-            window.location.href = "match.html";
-        }
-        
-        // Auth state observer
-        firebase.auth().onAuthStateChanged((user) => {
-            if (user) {
-                // User is signed in
-                currentUser = user;
-                initializeGame();
-            } else {
-                // User is signed out
-                alert("You need to be signed in to play. Redirecting to lobby.");
-                window.location.href = "match.html";
-            }
-        });
-        
-        // Initialize the game
-        async function initializeGame() {
-            try {
-                // Get game data
-                const gameDocRef = firebase.firestore().collection("games").doc(gameId);
-                const gameSnapshot = await gameDocRef.get();
-                
-                if (!gameSnapshot.exists) {
-                    alert("Game not found. Redirecting to lobby.");
-                    window.location.href = "match.html";
-                    return;
-                }
-                
-                gameData = gameSnapshot.data();
-                questions = gameData.questions;
-                players = gameData.players;
-                
-                // Set up game UI
-                setupGame();
-                
-                // Show the game container
-                loadingContainer.classList.add('hidden');
-                gameContainer.classList.remove('hidden');
-                
-                // Listen for game updates
-                setupGameListener();
-            } catch (error) {
-                console.error("Error initializing game:", error);
-                alert("Error loading game: " + error.message);
-                window.location.href = "match.html";
-            }
-        }
-        
-        // Set up the game UI
-        function setupGame() {
-            // Find opponent
-            const playerIds = Object.keys(players);
-            opponentId = playerIds.find(id => id !== currentUser.uid);
-            
-            // Set player names
-            player1Name.textContent = players[currentUser.uid].displayName;
-            player2Name.textContent = players[opponentId].displayName;
-            
-            // Set total questions
-            totalQuestions.textContent = questions.length;
-            
-            // Show first question
-            showQuestion(0);
-        }
-        
-        // Show a question
-        function showQuestion(index) {
-            if (index >= questions.length) {
-                // End of quiz
-                finishQuiz();
-                return;
-            }
-            
-            // Update progress
-            currentQuestionIndex = index;
-            currentQuestionNum.textContent = index + 1;
-            progressBar.style.width = `${((index + 1) / questions.length) * 100}%`;
-            
-            // Get current question
-            const question = questions[index];
-            
-            // Display question
-            questionText.textContent = question.question;
-            
-            // Clear options
-            optionsContainer.innerHTML = '';
-            
-            // Add options
-            question.options.forEach((option, i) => {
-                const button = document.createElement('button');
-                button.className = 'option-btn';
-                button.textContent = option;
-                button.dataset.index = i;
-                button.addEventListener('click', () => selectOption(i));
-                optionsContainer.appendChild(button);
-            });
-            
-            // Hide next button
-            nextBtn.classList.add('hidden');
-        }
-        
-        // Select an option
-        async function selectOption(optionIndex) {
-            // Prevent selecting multiple options
-            const optionButtons = optionsContainer.querySelectorAll('.option-btn');
-            optionButtons.forEach(button => {
-                button.classList.add('disabled');
-                button.removeEventListener('click', selectOption);
-            });
-            
-            // Get current question
-            const question = questions[currentQuestionIndex];
-            
-            // Highlight selected option
-            const selectedButton = optionsContainer.querySelector(`[data-index="${optionIndex}"]`);
-            selectedButton.classList.add('selected');
-            
-            // Check if answer is correct
-            const isCorrect = optionIndex === question.correctIndex;
-            
-            // Show correct and incorrect answers
-            setTimeout(() => {
-                optionButtons.forEach(button => {
-                    const index = parseInt(button.dataset.index);
-                    if (index === question.correctIndex) {
-                        button.classList.add('correct');
-                    } else if (index === optionIndex && !isCorrect) {
-                        button.classList.add('incorrect');
-                    }
-                });
-                
-                // Save answer to userAnswers
-                userAnswers.push({
-                    questionIndex: currentQuestionIndex,
-                    selectedOption: optionIndex,
-                    isCorrect: isCorrect
-                });
-                
-                // Update player's answers in Firestore
-                updatePlayerAnswers(currentQuestionIndex, optionIndex, isCorrect);
-                
-                // Show next button
-                nextBtn.classList.remove('hidden');
-            }, 500);
-        }
-        
-        // Update player's answers in Firestore
-        async function updatePlayerAnswers(questionIndex, optionIndex, isCorrect) {
-            try {
-                const gameDocRef = firebase.firestore().collection("games").doc(gameId);
-                
-                // Calculate current score
-                const score = userAnswers.filter(answer => answer.isCorrect).length;
-                
-                // Update player data in Firestore
-                await gameDocRef.update({
-                    [`players.${currentUser.uid}.answers`]: firebase.firestore.FieldValue.arrayUnion({
-                        questionIndex: questionIndex,
-                        selectedOption: optionIndex,
-                        isCorrect: isCorrect
-                    }),
-                    [`players.${currentUser.uid}.score`]: score
-                });
-                
-                // If this is the last question, mark player as completed
-                if (questionIndex === questions.length - 1) {
-                    await gameDocRef.update({
-                        [`players.${currentUser.uid}.completed`]: true
-                    });
-                }
-            } catch (error) {
-                console.error("Error updating answers:", error);
-            }
-        }
-        
-        // Next question button handler
-        nextBtn.addEventListener('click', () => {
-            showQuestion(currentQuestionIndex + 1);
-        });
-        
-        // Finish quiz
-        function finishQuiz() {
-            player1Status.textContent = "Completed";
-            
-            // Wait for opponent to finish
-            if (!players[opponentId] || !players[opponentId].completed) {
-                questionText.textContent = "Waiting for opponent to finish...";
-                optionsContainer.innerHTML = '';
-                nextBtn.classList.add('hidden');
-            } else {
-                showResults();
-            }
-        }
-        
-        // Show quiz results
-        function showResults() {
-            gameContainer.classList.add('hidden');
-            resultsContainer.classList.remove('hidden');
-            
-            const userScore = players[currentUser.uid].score;
-            const opponentScore = players[opponentId].score;
-            
-            player1Score.textContent = userScore;
-            player2Score.textContent = opponentScore;
-            
-            if (userScore > opponentScore) {
-                winnerAnnouncement.textContent = "Congratulations! You won!";
-            } else if (opponentScore > userScore) {
-                winnerAnnouncement.textContent = "You lost. Better luck next time!";
-            } else {
-                winnerAnnouncement.textContent = "It's a tie!";
-            }
-        }
-        
-        // Return to lobby button handler
-        returnLobbyBtn.addEventListener('click', () => {
-            window.location.href = "match.html";
-        });
-        
-        // Set up game listener for real-time updates
-        function setupGameListener() {
-            if (gameUnsubscribe) {
-                gameUnsubscribe();
-            }
-            
-            gameUnsubscribe = firebase.firestore().collection("games").doc(gameId)
-                .onSnapshot((doc) => {
-                    if (!doc.exists) {
-                        alert("Game was deleted. Redirecting to lobby.");
-                        window.location.href = "match.html";
-                        return;
-                    }
-                    
-                    const data = doc.data();
-                    players = data.players;
-                    
-                    // Update opponent status
-                    if (players[opponentId]) {
-                        if (players[opponentId].completed) {
-                            player2Status.textContent = "Completed";
-                        } else if (players[opponentId].answers && players[opponentId].answers.length > 0) {
-                            player2Status.textContent = `Answered ${players[opponentId].answers.length} of ${questions.length}`;
-                        }
-                    }
-                    
-                    // If both players completed, show results
-                    if (players[currentUser.uid] && players[currentUser.uid].completed && 
-                        players[opponentId] && players[opponentId].completed) {
-                        showResults();
-                    }
-                });
-        }
-        
-        // Clean up on page close
-        window.addEventListener('beforeunload', () => {
-            if (gameUnsubscribe) {
-                gameUnsubscribe();
-            }
-        });
-    </script>
+    <script src="batalie.js"></script>
 </body>
 </html>
