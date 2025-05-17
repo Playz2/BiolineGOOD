@@ -79,76 +79,81 @@ body {
   .menu-links a:hover {
     background-color: #555;
   }
-  .sidebar {
+.sidebar {
     position: fixed;
     top: 0;
     bottom: 0;
-    width: 250px;
-    background-color: rgb(217, 217, 217);
-    overflow: auto;
-    padding-top: 10px;
+    width: 280px;
+    background-color: #fff;
+    overflow-y: auto;
+    transition: all 0.3s ease;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 900;
 }
 
-.sidebar a {
-    display: block;
-    padding: 10px 20px;
-    text-decoration: none;
-    color: #000000;
-    font-size: 1rem;
-    transition: background-color 0.3s ease;
-}
-
-.sidebar a:hover {
-    color: white;
-    background-color: #444;
+.sidebar.hidden {
+    transform: translateX(-280px);
 }
 
 .sidebar h2 {
-    color: #000000;
-    padding-left: 35px;
+    color: #0f266c;
+    padding: 20px;
+    font-size: 1.6rem;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 10px;
+    margin-left: 16px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .capitol {
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 .capitol-btn {
     width: 100%;
-    background-color: #ccc;
+    background-color: #f1f5fd;
     border: none;
-    padding: 10px;
+    padding: 12px 20px;
     text-align: left;
     font-size: 1rem;
     cursor: pointer;
     transition: background-color 0.3s;
+    color: #0f266c;
+    font-weight: 500;
+    border-left: 4px solid transparent;
 }
 
 .capitol-btn:hover {
-    background-color: #bbb;
+    background-color: #e1e9f8;
+    border-left: 4px solid #0f266c;
 }
 
 .lectii {
     display: none;
-    padding-left: 20px;
+    background-color: #f9fafc;
 }
 
 .lectii a {
-    padding: 8px 10px;
+    padding: 10px 20px 10px 40px;
     display: block;
+    text-decoration: none;
+    color: #555;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    border-left: 3px solid transparent;
 }
-.titl{
-    position:relative;
-    width:1670px;
-    height:207px;
-    background-color: rgb(217, 217, 217);
-    left:250px;
+
+.lectii a:hover {
+    background-color: #e1e9f8;
+    color: #0f266c;
+    border-left: 3px solid #0f266c;
 }
 .titl{
     position:absolute;
 width:1920px;
 height:180px;
 background-color:rgb(217,217,217);
-left:250px;
+left:280px;
 top:100px;
 }
 .titl h1{
